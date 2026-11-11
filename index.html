@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ferrotech Казахстан — Поставки металлопроката, спецсплавов и цветных металлов</title>
-  <meta name="description" content="ТОО Ferrotech Kazakhstan: надежный поставщик нержавеющего, цветного, черного металлопроката, спецсплавов и полимеров в Казахстане. Склады в Астане, Алматы, Караганде, Атырау.">
+  <meta name="description" content="ТОО Ferrotech Kazakhstan: поставщик нержавеющего, цветного, черного металлопроката, спецсплавов и полимеров в Казахстане. Склады в Астане, Алматы, Караганде, Атырау.">
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -86,316 +86,435 @@
     </div>
   </header>
 
-  <!-- Navigation Bar -->
-  <nav class="site-nav-bar">
-    <div class="container nav-bar-inner">
-      <a href="catalog.html" class="catalog-menu-btn">
-        <span>☰</span>
-        <span>ВЕСЬ КАТАЛОГ МЕТАЛЛОПРОКАТА</span>
-      </a>
-      <div class="main-site-nav">
-        <a href="catalog.html?cat=stainless">Нержавеющая сталь</a>
-        <a href="catalog.html?cat=nonferrous">Цветные металлы</a>
-        <a href="catalog.html?cat=special">Спецсплавы и нихром</a>
-        <a href="catalog.html?cat=titanium">Титан и никель</a>
-        <a href="catalog.html?cat=polymers">Инженерные полимеры</a>
-        <a href="catalog.html?cat=ferrous">Черный прокат</a>
-        <a href="services.html">Услуги резки</a>
-        <a href="calculator.html" class="highlight-link">🧮 Калькулятор веса</a>
-        <a href="delivery.html">Доставка по РК</a>
-        <a href="contacts.html">Склады</a>
+  <!-- Sticky Quick Navigation Dock (Instant Access Without Scrolling) -->
+  <div class="quick-dock-bar">
+    <div class="container quick-dock-inner">
+      <div class="dock-pill-group">
+        <button type="button" class="dock-pill active" onclick="switchHubTab('tab-categories', this)">
+          <span>📦</span> <span>Каталог товаров</span>
+        </button>
+        <button type="button" class="dock-pill" onclick="switchHubTab('tab-popular', this)">
+          <span>⚡</span> <span>Популярное в наличии</span>
+        </button>
+        <button type="button" class="dock-pill" onclick="switchHubTab('tab-calculator', this)">
+          <span>🧮</span> <span>Экспресс-калькулятор</span>
+        </button>
+        <button type="button" class="dock-pill" onclick="switchHubTab('tab-warehouses', this)">
+          <span>🚚</span> <span>Склады в РК</span>
+        </button>
+        <button type="button" class="dock-pill" onclick="switchHubTab('tab-tenders', this)">
+          <span>📜</span> <span>Тендеры и СТ-KZ</span>
+        </button>
+      </div>
+
+      <div style="display:flex; align-items:center; gap:10px;">
+        <a href="calculator.html" class="dock-pill" style="background:var(--color-primary); color:#ffffff; border-color:var(--color-primary);">
+          <span>🧮</span> <span>Калькулятор 23MET</span>
+        </a>
+        <a href="https://wa.me/77005557080?text=%D0%A1%D3%99%D0%BB%D0%B5%D0%BC%D0%B5%D1%82%D1%81%D1%96%D0%B7%20%D0%B1%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BC%D0%B5%D1%82%D0%B0%D0%BB%D0%BB%D0%BE%D0%BF%D1%80%D0%BE%D0%BA%D0%B0%D1%82%20%D0%B2%20%D0%A2%D0%9E%D0%9E%20Ferrotech%20Kazakhstan" target="_blank" class="dock-pill" style="background:#25d366; color:#ffffff; border-color:#25d366;">
+          <span>💬</span> <span>WhatsApp</span>
+        </a>
       </div>
     </div>
-  </nav>
+  </div>
 
-  <!-- Hero Portal Banner -->
-  <section class="hero-portal">
-    <div class="container hero-portal-grid">
-      <div>
-        <span class="hero-kz-tag">Поставщик металлопроката №1 в Казахстане</span>
-        <h1 class="hero-main-title">Спецсплавы, цветной и нержавеющий металлопрокат в РК</h1>
-        <p class="hero-main-desc">
-          ТОО «Ferrotech Kazakhstan» — комплексное снабжение промышленных предприятий Республики Казахстан. Более <strong>60 000 наименований</strong> со складов в Астане, Алматы, Караганде и Атырау. Выставление счетов в тенге с НДС 12%, оформление ЭСФ, СНТ и сертификатов СТ-KZ.
-        </p>
-
-        <div style="display:flex; gap:14px; flex-wrap:wrap; margin-top:24px;">
-          <a href="catalog.html" class="btn btn-primary btn-lg">Перейти в каталог продукции</a>
-          <a href="calculator.html" class="btn btn-outline btn-lg" style="color:#ffffff; border-color:#475569;">Рассчитать вес на калькуляторе</a>
-        </div>
-      </div>
-
-      <!-- Quick Fast RFQ Card -->
-      <div style="background-color:var(--color-brand-card); border:1px solid var(--color-brand-border); border-radius:var(--radius-lg); padding:26px;">
-        <h3 style="font-size:18px; font-weight:700; margin-bottom:4px; color:#ffffff;">Быстрый запрос КП за 15 минут</h3>
-        <p style="font-size:13px; color:#94a3b8; margin-bottom:16px;">Вставьте список марок и типоразмеров или прикрепите заявку</p>
-        <form onsubmit="event.preventDefault(); showToast('Заявка принята! Менеджер сформирует КП в тенге в течение 15 минут.'); this.reset();">
-          <div style="margin-bottom:12px;">
-            <textarea rows="3" placeholder="Пример: Лист 12Х18Н10Т 3мм — 300 кг, Круг ВТ1-0 ф50 — 80 кг, Шина медная 40х4 — 150 м..." style="width:100%; padding:10px; border-radius:4px; background:#0f172a; border:1px solid #334155; color:#ffffff; font-size:13px;" required></textarea>
-          </div>
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px;">
-            <input type="tel" placeholder="+7 (7__) ___-__-__" style="padding:9px; border-radius:4px; background:#0f172a; border:1px solid #334155; color:#ffffff; font-size:13px;" required>
-            <input type="email" placeholder="snab@company.kz" style="padding:9px; border-radius:4px; background:#0f172a; border:1px solid #334155; color:#ffffff; font-size:13px;" required>
-          </div>
-          <button type="submit" class="btn btn-primary btn-block btn-lg">Получить счет и сроки (Тенге ₸)</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- 8 Major Categories Grid (Inspired by BVB & Velund) -->
-  <section class="section">
-    <div class="container">
-      <div class="text-center">
-        <span class="section-tag">Каталог металлопроката</span>
-        <h2 class="section-title">Основные товарные группы</h2>
-        <p class="section-subtitle">Прямые поставки от ведущих металлургических комбинатов с сертификатами соответствия</p>
-      </div>
-
-      <div class="home-cat-grid">
-        <div class="home-cat-card">
-          <div class="home-cat-icon">🛡️</div>
-          <h3>Нержавеющая сталь</h3>
-          <p>Листы, бесшовные и сварные трубы, круги, полосы, сетки марок 12Х18Н10Т, 08Х18Н10, AISI 304, AISI 316L, AISI 321.</p>
-          <a href="catalog.html?cat=stainless" class="cat-arrow-link">Смотреть каталог →</a>
-        </div>
-
-        <div class="home-cat-card">
-          <div class="home-cat-icon">🥉</div>
-          <h3>Цветной металлопрокат</h3>
-          <p>Медь (М1, М2), латунь (Л63, ЛС59-1), бронза (БрАЖ9-4, БрОЦС), алюминий (Д16Т, АМг5) в прутках, шинах, плитах и трубах.</p>
-          <a href="catalog.html?cat=nonferrous" class="cat-arrow-link">Смотреть каталог →</a>
-        </div>
-
-        <div class="home-cat-card">
-          <div class="home-cat-icon">⚡</div>
-          <h3>Спецсплавы и нихром</h3>
-          <p>Нихромовая проволока и лента Х20Н80, фехраль Х23Ю5Т, молибден МЧ, вольфрам ВА/ВЛ, жаропрочные и прецизионные сплавы.</p>
-          <a href="catalog.html?cat=special" class="cat-arrow-link">Смотреть каталог →</a>
-        </div>
-
-        <div class="home-cat-card">
-          <div class="home-cat-icon">✈️</div>
-          <h3>Титан и никель</h3>
-          <p>Технический чистый титан ВТ1-0, высокопрочный авиационный ВТ6, титановые трубы ПТ-7М, никелевые круги НП2.</p>
-          <a href="catalog.html?cat=titanium" class="cat-arrow-link">Смотреть каталог →</a>
-        </div>
-
-        <div class="home-cat-card">
-          <div class="home-cat-icon">🧪</div>
-          <h3>Инженерные полимеры</h3>
-          <p>Фторопласт Ф-4 (стержни, пластины), капролон блочный ПА-6, текстолит ПТК для узлов трения и химических аппаратов.</p>
-          <a href="catalog.html?cat=polymers" class="cat-arrow-link">Смотреть каталог →</a>
-        </div>
-
-        <div class="home-cat-card">
-          <div class="home-cat-icon">🏗️</div>
-          <h3>Черный и фасонный прокат</h3>
-          <p>Толстостенные профильные трубы 09Г2С, конструкционные круги 40ХН2МА, поковки, стальной лист, швеллеры и балки.</p>
-          <a href="catalog.html?cat=ferrous" class="cat-arrow-link">Смотреть каталог →</a>
-        </div>
-
-        <div class="home-cat-card">
-          <div class="home-cat-icon">🚰</div>
-          <h3>Трубопроводная арматура</h3>
-          <p>Нержавеющие и стальные фланцы, отводы, тройники, переходы по ГОСТ и ANSI для нефтегазового сектора РК.</p>
-          <a href="catalog.html?cat=stainless" class="cat-arrow-link">Смотреть каталог →</a>
-        </div>
-
-        <div class="home-cat-card">
-          <div class="home-cat-icon">✂️</div>
-          <h3>Услуги металлообработки</h3>
-          <p>Высокоточная лазерная резка ЧПУ, гидроабразивный раскрой без нагрева, ленточнопильная резка, гибка и вальцовка.</p>
-          <a href="services.html" class="cat-arrow-link">Подробнее об услугах →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Popular Products Preview Table -->
-  <section class="section" style="background-color:#ffffff; border-top:1px solid #e2e8f0; border-bottom:1px solid #e2e8f0;">
-    <div class="container">
-      <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:24px;">
+  <!-- Compact Modern Hero Banner -->
+  <section class="compact-hero">
+    <div class="container compact-hero-inner">
+      <div class="compact-hero-header">
         <div>
-          <span class="section-tag">Популярные позиции в РК</span>
-          <h2 class="section-title">Металлопрокат в наличии на складах</h2>
+          <span class="compact-hero-tag">
+            <span>🇰🇿</span> <span>ТОО «Ferrotech Kazakhstan» — Официальный поставщик в РК</span>
+          </span>
+          <h1 class="compact-hero-title">Металлопрокат, спецстали и цветные металлы в Казахстане</h1>
+          <p class="compact-hero-subtitle">
+            Более 60 000 позиций на крытых металлобазах в Астане, Алматы, Караганде и Атырау. Поставки по стандартам ГОСТ и СТ РК, выставление счетов в тенге с НДС 12%, ЭСФ и СНТ.
+          </p>
         </div>
-        <a href="catalog.html" class="btn btn-outline">Перейти ко всем 60 000 позициям →</a>
+
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a href="catalog.html" class="btn btn-primary btn-lg">Открыть каталог (60 000+)</a>
+          <button type="button" class="btn btn-outline btn-lg" onclick="document.getElementById('quickRfqModal').classList.remove('hidden')" style="color:#ffffff; border-color:#475569;">
+            ⚡ Быстрый расчет КП за 15 мин
+          </button>
+        </div>
       </div>
 
-      <div class="table-responsive">
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>Наименование позиции</th>
-              <th>Марка материала</th>
-              <th>Форма / Размер</th>
-              <th>Стандарт</th>
-              <th>Склады в Казахстане</th>
-              <th>Цена с НДС 12%</th>
-              <th>Заказ</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong><a href="product.html?id=nerzh-list-12x18n10t">Лист нержавеющий матовый 12Х18Н10Т</a></strong></td>
-              <td><span style="font-family:var(--font-mono); font-weight:700; color:#0284c7;">12Х18Н10Т (AISI 321)</span></td>
-              <td>3.0 × 1000 × 2000 мм</td>
-              <td style="color:#64748b;">ГОСТ 5582-75</td>
-              <td><span class="stock-tag in-stock">Астана / Алматы</span></td>
-              <td style="font-family:var(--font-mono); font-weight:700; color:#d97706;">2 950 ₸/кг</td>
-              <td><a href="product.html?id=nerzh-list-12x18n10t" class="btn btn-primary btn-sm">Карточка товара</a></td>
-            </tr>
-            <tr>
-              <td><strong><a href="product.html?id=nerzh-truba-12x18n10t">Труба нержавеющая бесшовная 12Х18Н10Т</a></strong></td>
-              <td><span style="font-family:var(--font-mono); font-weight:700; color:#0284c7;">12Х18Н10Т</span></td>
-              <td>25 × 2.5 мм, L=6м</td>
-              <td style="color:#64748b;">ГОСТ 9941-81</td>
-              <td><span class="stock-tag in-stock">Астана / Атырау</span></td>
-              <td style="font-family:var(--font-mono); font-weight:700; color:#d97706;">4 200 ₸/кг</td>
-              <td><a href="product.html?id=nerzh-truba-12x18n10t" class="btn btn-primary btn-sm">Карточка товара</a></td>
-            </tr>
-            <tr>
-              <td><strong><a href="product.html?id=med-prutok-m1">Пруток медный тянутый М1т</a></strong></td>
-              <td><span style="font-family:var(--font-mono); font-weight:700; color:#0284c7;">М1т (99.9% Cu)</span></td>
-              <td>ф 20 мм, L=3м</td>
-              <td style="color:#64748b;">ГОСТ 1535-2016</td>
-              <td><span class="stock-tag in-stock">Астана / Алматы</span></td>
-              <td style="font-family:var(--font-mono); font-weight:700; color:#d97706;">7 600 ₸/кг</td>
-              <td><a href="product.html?id=med-prutok-m1" class="btn btn-primary btn-sm">Карточка товара</a></td>
-            </tr>
-            <tr>
-              <td><strong><a href="product.html?id=titan-krug-vt1-0">Пруток титановый кованый ВТ1-0</a></strong></td>
-              <td><span style="font-family:var(--font-mono); font-weight:700; color:#0284c7;">ВТ1-0 (Grade 2)</span></td>
-              <td>ф 50 мм, L=2-3м</td>
-              <td style="color:#64748b;">ГОСТ 26492-85</td>
-              <td><span class="stock-tag in-stock">Астана / Атырау</span></td>
-              <td style="font-family:var(--font-mono); font-weight:700; color:#d97706;">18 000 ₸/кг</td>
-              <td><a href="product.html?id=titan-krug-vt1-0" class="btn btn-primary btn-sm">Карточка товара</a></td>
-            </tr>
-            <tr>
-              <td><strong><a href="product.html?id=nichrom-provoloka-x20n80">Проволока нихромовая Х20Н80</a></strong></td>
-              <td><span style="font-family:var(--font-mono); font-weight:700; color:#0284c7;">Х20Н80</span></td>
-              <td>ф 0.8 мм, катушка</td>
-              <td style="color:#64748b;">ГОСТ 12766.1-90</td>
-              <td><span class="stock-tag in-stock">Астана (Центр)</span></td>
-              <td style="font-family:var(--font-mono); font-weight:700; color:#d97706;">17 200 ₸/кг</td>
-              <td><a href="product.html?id=nichrom-provoloka-x20n80" class="btn btn-primary btn-sm">Карточка товара</a></td>
-            </tr>
-          </tbody>
-        </table>
+      <!-- Quick Category Pills -->
+      <div class="hero-filter-pills">
+        <span class="hero-pill-label">Быстрый переход:</span>
+        <a href="catalog.html?cat=stainless" class="hero-cat-pill">🛡️ Нержавеющая сталь</a>
+        <a href="catalog.html?cat=nonferrous" class="hero-cat-pill">🥉 Цветной металл (Медь, Латунь, Бронза)</a>
+        <a href="catalog.html?cat=special" class="hero-cat-pill">⚡ Нихром и спецсплавы</a>
+        <a href="catalog.html?cat=titanium" class="hero-cat-pill">✈️ Титан ВТ1-0 / ВТ6</a>
+        <a href="catalog.html?cat=ferrous" class="hero-cat-pill">🏗️ Черный прокат и балки</a>
+        <a href="catalog.html?q=труба" class="hero-cat-pill">⭕ Трубы бесшовные & профильные</a>
+        <a href="services.html" class="hero-cat-pill">✂️ Резка ЧПУ и металлообработка</a>
       </div>
     </div>
   </section>
 
-  <!-- 23MET Calculator Feature Showcase -->
-  <section class="section" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #ffffff;">
-    <div class="container" style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center;">
-      <div>
-        <span class="section-tag" style="color: #38bdf8;">Инженерный ГОСТ Калькулятор 23MET</span>
-        <h2 style="font-size: 28px; font-weight: 800; margin-bottom: 14px; color: #ffffff;">Точный расчет массы, метража и стоимости проката</h2>
-        <p style="color: #cbd5e1; font-size: 14px; line-height: 1.6; margin-bottom: 20px;">
-          Интерактивный двухсторонний пересчет по нормативам ГОСТ и СТ РК: введите вес в тоннах, метры или количество штук — калькулятор мгновенно рассчитает все параметры партии, площадь поверхности и точную стоимость в тенге (₸) с учетом НДС 12%.
-        </p>
-        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-          <a href="calculator.html" class="btn btn-primary btn-lg">Открыть калькулятор 23MET →</a>
-          <a href="catalog.html" class="btn btn-outline btn-lg" style="color:#ffffff; border-color:#475569;">Смотреть каталог товаров</a>
+  <!-- Central Tabbed Hub Console (No Endless Scrolling!) -->
+  <main class="container hub-console" id="hubConsole">
+    <div class="hub-nav-card">
+      <!-- 5 Hub Tab Buttons -->
+      <div class="hub-tabs-header" role="tablist">
+        <button type="button" class="hub-tab-btn active" id="tabBtn-categories" role="tab" aria-selected="true" onclick="switchHubTab('tab-categories', this)">
+          <span>📦</span>
+          <span>Каталог металлопроката</span>
+          <span class="hub-tab-badge">8 групп</span>
+        </button>
+        <button type="button" class="hub-tab-btn" id="tabBtn-popular" role="tab" aria-selected="false" onclick="switchHubTab('tab-popular', this)">
+          <span>⚡</span>
+          <span>Популярные позиции в наличии</span>
+          <span class="hub-tab-badge">Прайс ₸</span>
+        </button>
+        <button type="button" class="hub-tab-btn" id="tabBtn-calculator" role="tab" aria-selected="false" onclick="switchHubTab('tab-calculator', this)">
+          <span>🧮</span>
+          <span>Экспресс-калькулятор массы</span>
+          <span class="hub-tab-badge">23MET</span>
+        </button>
+        <button type="button" class="hub-tab-btn" id="tabBtn-warehouses" role="tab" aria-selected="false" onclick="switchHubTab('tab-warehouses', this)">
+          <span>🚚</span>
+          <span>Склады и металлобазы в РК</span>
+          <span class="hub-tab-badge">4 филиала</span>
+        </button>
+        <button type="button" class="hub-tab-btn" id="tabBtn-tenders" role="tab" aria-selected="false" onclick="switchHubTab('tab-tenders', this)">
+          <span>📜</span>
+          <span>Тендеры и Сертификаты</span>
+          <span class="hub-tab-badge">СТ-KZ</span>
+        </button>
+      </div>
+
+      <!-- Tab Pane 1: Categories Hub -->
+      <div class="hub-panel active" id="tab-categories">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; flex-wrap:wrap; gap:12px;">
+          <div>
+            <h3 style="font-size:18px; font-weight:800; color:#0f172a; margin-bottom:4px;">Основные товарные категории</h3>
+            <p style="font-size:13px; color:#64748b; margin:0;">Прямые поставки от металлургических комбинатов. Выберите категорию для перехода в каталог:</p>
+          </div>
+          <a href="catalog.html" class="btn btn-outline btn-sm">Смотреть весь каталог →</a>
+        </div>
+
+        <div class="hub-cat-grid">
+          <a href="catalog.html?cat=stainless" class="hub-cat-card">
+            <div>
+              <div class="hub-cat-icon">🛡️</div>
+              <div class="hub-cat-title">Нержавеющая сталь</div>
+              <div class="hub-cat-desc">Листы, бесшовные и сварные трубы, круги марок 12Х18Н10Т, 08Х18Н10, AISI 304, AISI 316L, AISI 321.</div>
+            </div>
+            <div class="hub-cat-action">В каталог нержавейки →</div>
+          </a>
+
+          <a href="catalog.html?cat=nonferrous" class="hub-cat-card">
+            <div>
+              <div class="hub-cat-icon">🥉</div>
+              <div class="hub-cat-title">Цветной металлопрокат</div>
+              <div class="hub-cat-desc">Медь М1/М2, латунь Л63/ЛС59, бронза БрАЖ9-4, алюминий Д16Т/АД31 в прутках, шинах и плитах.</div>
+            </div>
+            <div class="hub-cat-action">В каталог цветмета →</div>
+          </a>
+
+          <a href="catalog.html?cat=special" class="hub-cat-card">
+            <div>
+              <div class="hub-cat-icon">⚡</div>
+              <div class="hub-cat-title">Спецсплавы и нихром</div>
+              <div class="hub-cat-desc">Нихромовая проволока Х20Н80, фехраль Х23Ю5Т, молибден МЧ, вольфрам ВА/ВЧ, прецизионные сплавы.</div>
+            </div>
+            <div class="hub-cat-action">В каталог спецсплавов →</div>
+          </a>
+
+          <a href="catalog.html?cat=titanium" class="hub-cat-card">
+            <div>
+              <div class="hub-cat-icon">✈️</div>
+              <div class="hub-cat-title">Титан и никель</div>
+              <div class="hub-cat-desc">Титан чистый ВТ1-0, авиационный ВТ6, трубы ПТ-7М, никелевые круги НП2 для химии и авиастроения.</div>
+            </div>
+            <div class="hub-cat-action">В каталог титана →</div>
+          </a>
+
+          <a href="catalog.html?cat=ferrous" class="hub-cat-card">
+            <div>
+              <div class="hub-cat-icon">🏗️</div>
+              <div class="hub-cat-title">Черный и фасонный прокат</div>
+              <div class="hub-cat-desc">Арматура А500С, двутавровые балки Б/Ш/К, швеллеры 5..30У/П, уголки, профильные трубы 09Г2С.</div>
+            </div>
+            <div class="hub-cat-action">В каталог черного проката →</div>
+          </a>
+
+          <a href="catalog.html?cat=polymers" class="hub-cat-card">
+            <div>
+              <div class="hub-cat-icon">🧪</div>
+              <div class="hub-cat-title">Инженерные полимеры</div>
+              <div class="hub-cat-desc">Фторопласт Ф-4 (стержни, пластины), капролон блочный ПА-6, текстолит для узлов трения.</div>
+            </div>
+            <div class="hub-cat-action">В каталог полимеров →</div>
+          </a>
+
+          <a href="catalog.html?q=фланец" class="hub-cat-card">
+            <div>
+              <div class="hub-cat-icon">🚰</div>
+              <div class="hub-cat-title">Трубопроводная арматура</div>
+              <div class="hub-cat-desc">Фланцы стальные и нержавеющие, отводы, тройники, переходы по ГОСТ и ANSI для нефтегаза.</div>
+            </div>
+            <div class="hub-cat-action">Смотреть арматуру →</div>
+          </a>
+
+          <a href="services.html" class="hub-cat-card">
+            <div>
+              <div class="hub-cat-icon">✂️</div>
+              <div class="hub-cat-title">Услуги металлообработки</div>
+              <div class="hub-cat-desc">Лазерная резка ЧПУ, гидроабразивный раскрой, ленточнопильный раскрой в размер, гибка и цинкование.</div>
+            </div>
+            <div class="hub-cat-action">Подробнее об услугах →</div>
+          </a>
         </div>
       </div>
-      <div style="background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 24px;">
-        <div style="font-size: 12px; color: #94a3b8; font-weight: 700; text-transform: uppercase; margin-bottom: 12px;">Быстрый расчет типоразмеров:</div>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 13px;">
-          <a href="calculator.html" style="background:#0f172a; padding:10px; border-radius:6px; color:#f8fafc; border:1px solid #334155; display:block;">Арматура А3 (А500С)</a>
-          <a href="calculator.html" style="background:#0f172a; padding:10px; border-radius:6px; color:#f8fafc; border:1px solid #334155; display:block;">Балка двутавр (Б/Ш)</a>
-          <a href="calculator.html" style="background:#0f172a; padding:10px; border-radius:6px; color:#f8fafc; border:1px solid #334155; display:block;">Швеллер (5..30У/П)</a>
-          <a href="calculator.html" style="background:#0f172a; padding:10px; border-radius:6px; color:#f8fafc; border:1px solid #334155; display:block;">Труба круглая & профиль</a>
-          <a href="calculator.html" style="background:#0f172a; padding:10px; border-radius:6px; color:#f8fafc; border:1px solid #334155; display:block;">Лист г/к, х/к, рифленый</a>
-          <a href="calculator.html" style="background:#0f172a; padding:10px; border-radius:6px; color:#f8fafc; border:1px solid #334155; display:block;">Нержавейка & Цветмет</a>
+
+      <!-- Tab Pane 2: Popular In-Stock Products Table -->
+      <div class="hub-panel" id="tab-popular">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; flex-wrap:wrap; gap:12px;">
+          <div>
+            <h3 style="font-size:18px; font-weight:800; color:#0f172a; margin-bottom:4px;">Популярный металлопрокат в наличии</h3>
+            <p style="font-size:13px; color:#64748b; margin:0;">Цены указаны в тенге (₸) с учетом НДС 12%. Отгрузка с металлобаз в Астане и Алматы:</p>
+          </div>
+          <div style="display:flex; gap:10px;">
+            <button class="btn btn-outline btn-sm" onclick="downloadPricelistExcelQuick()">📊 Скачать прайс (Excel)</button>
+            <a href="catalog.html" class="btn btn-primary btn-sm">Перейти ко всем позициям →</a>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Наименование продукции</th>
+                <th>Марка стали / сплава</th>
+                <th>Размер / Сечение</th>
+                <th>Стандарт</th>
+                <th>Склад в РК</th>
+                <th>Цена с НДС 12%</th>
+                <th>Действие</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong><a href="product.html?id=nerzh-list-12x18n10t">Лист нержавеющий матовый 12Х18Н10Т</a></strong></td>
+                <td><span style="font-family:var(--font-mono); font-weight:700; color:#0284c7;">12Х18Н10Т (AISI 321)</span></td>
+                <td>3.0 × 1000 × 2000 мм</td>
+                <td style="color:#64748b;">ГОСТ 5582-75</td>
+                <td><span class="stock-tag in-stock">Астана / Алматы</span></td>
+                <td style="font-family:var(--font-mono); font-weight:700; color:#d97706;">2 950 ₸/кг</td>
+                <td><a href="product.html?id=nerzh-list-12x18n10t" class="btn btn-primary btn-sm">В карточку →</a></td>
+              </tr>
+              <tr>
+                <td><strong><a href="product.html?id=nerzh-truba-12x18n10t">Труба нержавеющая бесшовная 12Х18Н10Т</a></strong></td>
+                <td><span style="font-family:var(--font-mono); font-weight:700; color:#0284c7;">12Х18Н10Т</span></td>
+                <td>25 × 2.5 мм, L=6м</td>
+                <td style="color:#64748b;">ГОСТ 9941-81</td>
+                <td><span class="stock-tag in-stock">Астана / Атырау</span></td>
+                <td style="font-family:var(--font-mono); font-weight:700; color:#d97706;">4 200 ₸/кг</td>
+                <td><a href="product.html?id=nerzh-truba-12x18n10t" class="btn btn-primary btn-sm">В карточку →</a></td>
+              </tr>
+              <tr>
+                <td><strong><a href="product.html?id=med-prutok-m1">Пруток медный тянутый М1т</a></strong></td>
+                <td><span style="font-family:var(--font-mono); font-weight:700; color:#0284c7;">М1т (99.9% Cu)</span></td>
+                <td>ф 20 мм, L=3м</td>
+                <td style="color:#64748b;">ГОСТ 1535-2016</td>
+                <td><span class="stock-tag in-stock">Астана / Алматы</span></td>
+                <td style="font-family:var(--font-mono); font-weight:700; color:#d97706;">7 600 ₸/кг</td>
+                <td><a href="product.html?id=med-prutok-m1" class="btn btn-primary btn-sm">В карточку →</a></td>
+              </tr>
+              <tr>
+                <td><strong><a href="product.html?id=titan-krug-vt1-0">Пруток титановый кованый ВТ1-0</a></strong></td>
+                <td><span style="font-family:var(--font-mono); font-weight:700; color:#0284c7;">ВТ1-0 (Grade 2)</span></td>
+                <td>ф 50 мм, L=2-3м</td>
+                <td style="color:#64748b;">ГОСТ 26492-85</td>
+                <td><span class="stock-tag in-stock">Атырау (Нефтегаз)</span></td>
+                <td style="font-family:var(--font-mono); font-weight:700; color:#d97706;">18 000 ₸/кг</td>
+                <td><a href="product.html?id=titan-krug-vt1-0" class="btn btn-primary btn-sm">В карточку →</a></td>
+              </tr>
+              <tr>
+                <td><strong><a href="product.html?id=nichrom-provoloka-x20n80">Проволока нихромовая Х20Н80</a></strong></td>
+                <td><span style="font-family:var(--font-mono); font-weight:700; color:#0284c7;">Х20Н80</span></td>
+                <td>ф 0.8 мм, катушка</td>
+                <td style="color:#64748b;">ГОСТ 12766.1-90</td>
+                <td><span class="stock-tag in-stock">Астана (Центр)</span></td>
+                <td style="font-family:var(--font-mono); font-weight:700; color:#d97706;">17 200 ₸/кг</td>
+                <td><a href="product.html?id=nichrom-provoloka-x20n80" class="btn btn-primary btn-sm">В карточку →</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Tab Pane 3: Quick Express 23MET Calculator -->
+      <div class="hub-panel" id="tab-calculator">
+        <div class="express-calc-grid">
+          <div>
+            <span class="section-tag" style="color:#0284c7;">Инженерный ГОСТ-калькулятор 23MET</span>
+            <h3 style="font-size:22px; font-weight:800; color:#0f172a; margin:8px 0 12px 0;">Двусторонний расчет массы и метража партии</h3>
+            <p style="font-size:13px; color:#64748b; line-height:1.6; margin-bottom:18px;">
+              Полноценная реплика калькулятора 23met.ru с эталонными ГОСТ-весами для арматуры, двутавровых балок, швеллеров, уголков, круглых и профильных труб, нержавейки, цветных металлов и метизов.
+            </p>
+            <div style="display:flex; flex-direction:column; gap:8px; font-size:13px; color:#334155; margin-bottom:24px;">
+              <div>✔ Автоматический пересчет: <strong>Тонны ⇄ Кг ⇄ Метры ⇄ Штуки</strong></div>
+              <div>✔ Расчет точной стоимости партии в тенге (₸) с НДС 12%</div>
+              <div>✔ Векторные SVG-чертежи сечений профилей по стандартам</div>
+              <div>✔ Прямой экспорт спецификации в официальное КП с печатью</div>
+            </div>
+            <a href="calculator.html" class="btn btn-primary btn-lg">Открыть полный калькулятор 23MET →</a>
+          </div>
+
+          <div class="express-calc-box">
+            <h4 style="font-size:15px; font-weight:800; margin-bottom:14px; color:#0f172a;">Экспресс-расчет прямо сейчас:</h4>
+            
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px;">
+              <div>
+                <label style="display:block; font-size:11px; font-weight:700; color:#64748b; margin-bottom:4px;">Вид металлопроката:</label>
+                <select id="homeCalcProduct" style="width:100%; padding:8px 10px; border:1px solid #cbd5e1; border-radius:4px; font-size:13px;" onchange="runHomeQuickCalc()">
+                  <option value="0.888" data-name="Арматура А3 (А500С) 12 мм" selected>Арматура А3 ф12 (0.888 кг/м)</option>
+                  <option value="1.580" data-name="Арматура А3 ф16">Арматура А3 ф16 (1.580 кг/м)</option>
+                  <option value="22.40" data-name="Балка двутавровая 20Б1">Балка 20Б1 (22.40 кг/м)</option>
+                  <option value="12.30" data-name="Швеллер 14П">Швеллер 14П (12.30 кг/м)</option>
+                  <option value="8.38" data-name="Труба круглая 89х4">Труба 89х4 (8.38 кг/м)</option>
+                  <option value="3.44" data-name="Труба профильная 40х40х3">Труба проф. 40х40х3 (3.44 кг/м)</option>
+                  <option value="23.55" data-name="Лист стальной г/к 3.0 мм">Лист г/к 3.0 мм (23.55 кг/м²)</option>
+                  <option value="11.85" data-name="Лист нержавеющий AISI 304 1.5 мм">Лист нержавейка 1.5 мм (11.85 кг/м²)</option>
+                </select>
+              </div>
+
+              <div>
+                <label style="display:block; font-size:11px; font-weight:700; color:#64748b; margin-bottom:4px;">Длина 1 шт. (м):</label>
+                <input type="number" id="homeCalcLenOne" value="11.7" step="any" style="width:100%; padding:8px 10px; border:1px solid #cbd5e1; border-radius:4px; font-size:13px;" oninput="runHomeQuickCalc()">
+              </div>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:14px;">
+              <div>
+                <label style="display:block; font-size:11px; font-weight:700; color:#64748b; margin-bottom:4px;">Вес партии (тонны):</label>
+                <input type="number" id="homeCalcTons" value="1.000" step="any" style="width:100%; padding:8px 10px; border:1px solid #cbd5e1; border-radius:4px; font-size:14px; font-weight:700; font-family:var(--font-mono);" oninput="runHomeQuickCalc()">
+              </div>
+              <div>
+                <label style="display:block; font-size:11px; font-weight:700; color:#64748b; margin-bottom:4px;">Цена (₸ / тонну с НДС):</label>
+                <input type="number" id="homeCalcPrice" value="420000" step="1000" style="width:100%; padding:8px 10px; border:1px solid #cbd5e1; border-radius:4px; font-size:14px; font-weight:700; font-family:var(--font-mono);" oninput="runHomeQuickCalc()">
+              </div>
+            </div>
+
+            <!-- Calculated Output Card -->
+            <div style="background:#ffffff; border:1px solid #cbd5e1; border-radius:6px; padding:14px; margin-bottom:14px;">
+              <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:6px;">
+                <span style="color:#64748b;">Метраж партии:</span>
+                <strong id="homeResMeters" style="font-family:var(--font-mono);">1 126.12 м</strong>
+              </div>
+              <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:6px;">
+                <span style="color:#64748b;">Количество штук:</span>
+                <strong id="homeResCount" style="font-family:var(--font-mono);">96.3 шт</strong>
+              </div>
+              <div style="display:flex; justify-content:space-between; font-size:14px; padding-top:6px; border-top:1px dashed #cbd5e1;">
+                <span style="font-weight:700; color:#0f172a;">Стоимость с НДС 12%:</span>
+                <strong id="homeResCost" style="font-family:var(--font-mono); color:#d97706; font-size:16px;">420 000 ₸</strong>
+              </div>
+            </div>
+
+            <button type="button" class="btn btn-primary btn-block" onclick="addHomeQuickCalcToQuote()">+ Добавить расчет в заявку (КП)</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Pane 4: Warehouses Network -->
+      <div class="hub-panel" id="tab-warehouses">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; flex-wrap:wrap; gap:12px;">
+          <div>
+            <h3 style="font-size:18px; font-weight:800; color:#0f172a; margin-bottom:4px;">Складская сеть ТОО «Ferrotech Kazakhstan»</h3>
+            <p style="font-size:13px; color:#64748b; margin:0;">Собственные крытые комплексы с кран-балками 16т, авто- и ж/д пандусами в ключевых индустриальных центрах РК:</p>
+          </div>
+          <a href="delivery.html" class="btn btn-outline btn-sm">Подробнее о логистике →</a>
+        </div>
+
+        <div class="hub-wh-grid">
+          <div class="hub-wh-card">
+            <div>
+              <span class="stock-tag in-stock" style="margin-bottom:8px; display:inline-block;">Астана (Главный хаб)</span>
+              <h4 style="font-size:16px; font-weight:700; color:#0f172a; margin-bottom:6px;">Складской комплекс №1</h4>
+              <p style="font-size:12px; color:#64748b; margin-bottom:8px;">Индустриальный парк №1, ул. А184, зд. 14</p>
+              <p style="font-size:12px; color:#0f172a; font-weight:600; margin-bottom:8px;">Тел: +7 (7172) 97-20-40</p>
+              <p style="font-size:11px; color:#64748b;">12 000 м² крытого хранения. Полный сортамент нержавейки, цветмета, титана и полимеров.</p>
+            </div>
+            <a href="https://wa.me/77005557080?text=%D0%A1%D3%99%D0%BB%D0%B5%D0%BC%D0%B5%D1%82%D1%81%D1%96%D0%B7%20%D0%B1%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D0%B5%20%D0%BD%D0%B0%20%D1%81%D0%BA%D0%BB%D0%B0%D0%B4%D0%B5%20%D0%B2%20%D0%90%D1%81%D1%82%D0%B0%D0%BD%D0%B5" target="_blank" class="btn btn-outline btn-sm" style="margin-top:14px; text-align:center;">Запрос на склад в Астане →</a>
+          </div>
+
+          <div class="hub-wh-card">
+            <div>
+              <span class="stock-tag in-stock" style="margin-bottom:8px; display:inline-block;">Алматы (Юг)</span>
+              <h4 style="font-size:16px; font-weight:700; color:#0f172a; margin-bottom:6px;">Склад цветных металлов</h4>
+              <p style="font-size:12px; color:#64748b; margin-bottom:8px;">Жетысуский р-н, пр. Рыскулова, 143/1</p>
+              <p style="font-size:12px; color:#0f172a; font-weight:600; margin-bottom:8px;">Тел: +7 (727) 350-50-60</p>
+              <p style="font-size:11px; color:#64748b;">Склад меди, латуни, бронзы, алюминия и тонкостенных нержавеющих труб. Цех резки.</p>
+            </div>
+            <a href="https://wa.me/77005557080?text=%D0%A1%D3%99%D0%BB%D0%B5%D0%BC%D0%B5%D1%82%D1%81%D1%96%D0%B7%20%D0%B1%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D0%B5%20%D0%BD%D0%B0%20%D1%81%D0%BA%D0%BB%D0%B0%D0%B4%D0%B5%20%D0%B2%20%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B" target="_blank" class="btn btn-outline btn-sm" style="margin-top:14px; text-align:center;">Запрос на склад в Алматы →</a>
+          </div>
+
+          <div class="hub-wh-card">
+            <div>
+              <span class="stock-tag in-stock" style="margin-bottom:8px; display:inline-block;">Караганда (Центр)</span>
+              <h4 style="font-size:16px; font-weight:700; color:#0f172a; margin-bottom:6px;">База спецсталей и поковок</h4>
+              <p style="font-size:12px; color:#64748b; margin-bottom:8px;">Октябрьский р-н, Учетный кв. 134, стр. 28</p>
+              <p style="font-size:12px; color:#0f172a; font-weight:600; margin-bottom:8px;">Тел: +7 (7212) 94-05-30</p>
+              <p style="font-size:11px; color:#64748b;">Склад конструкционных сталей, поковок, чугуна и спецсплавов под горнорудный сектор РК.</p>
+            </div>
+            <a href="https://wa.me/77005557080?text=%D0%A1%D3%99%D0%BB%D0%B5%D0%BC%D0%B5%D1%82%D1%81%D1%96%D0%B7%20%D0%B1%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D0%B5%20%D0%BD%D0%B0%20%D1%81%D0%BA%D0%BB%D0%B0%D0%B4%D0%B5%20%D0%B2%20%D0%9A%D0%B0%D1%80%D0%B0%D0%B3%D0%B0%D0%BD%D0%B4%D0%B5" target="_blank" class="btn btn-outline btn-sm" style="margin-top:14px; text-align:center;">Запрос в Караганду →</a>
+          </div>
+
+          <div class="hub-wh-card">
+            <div>
+              <span class="stock-tag in-stock" style="margin-bottom:8px; display:inline-block;">Атырау (Нефтегаз)</span>
+              <h4 style="font-size:16px; font-weight:700; color:#0f172a; margin-bottom:6px;">Склад нефтегазовых сплавов</h4>
+              <p style="font-size:12px; color:#64748b; margin-bottom:8px;">Промзона, трасса Атырау — Доссор, 8</p>
+              <p style="font-size:12px; color:#0f172a; font-weight:600; margin-bottom:8px;">Тел: +7 (7122) 76-12-10</p>
+              <p style="font-size:11px; color:#64748b;">Коррозионно-стойкие стали AISI 316L, 12Х18Н10Т, титан и фланцы под Тенгиз и Кашаган.</p>
+            </div>
+            <a href="https://wa.me/77005557080?text=%D0%A1%D3%99%D0%BB%D0%B5%D0%BC%D0%B5%D1%82%D1%81%D1%96%D0%B7%20%D0%B1%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D0%B5%20%D0%BD%D0%B0%20%D1%81%D0%BA%D0%BB%D0%B0%D0%B4%D0%B5%20%D0%B2%20%D0%90%D1%82%D1%8B%D1%80%D0%B0%D1%83" target="_blank" class="btn btn-outline btn-sm" style="margin-top:14px; text-align:center;">Запрос в Атырау →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Pane 5: Tenders & Certification -->
+      <div class="hub-panel" id="tab-tenders">
+        <div style="display:grid; grid-template-columns:1.2fr 0.8fr; gap:30px; align-items:center;">
+          <div>
+            <span class="section-tag" style="color:#0284c7;">Государственные закупки и Недропользователи РК</span>
+            <h3 style="font-size:22px; font-weight:800; color:#0f172a; margin:8px 0 12px 0;">Поставки по требованиям «Самрук-Қазына» и Goszakup.gov.kz</h3>
+            <p style="font-size:13px; color:#475569; line-height:1.6; margin-bottom:16px;">
+              ТОО «Ferrotech Kazakhstan» является добросовестным поставщиком квазигосударственного сектора Республики Казахстан. Каждая отгрузка сопровождается полным пакетом закрывающих документов:
+            </p>
+            <div style="display:flex; flex-direction:column; gap:8px; font-size:13px; color:#334155; margin-bottom:20px;">
+              <div>✔ Электронные счета-фактуры (ЭСФ) и сопроводительные накладные (СНТ)</div>
+              <div>✔ Заводские паспорта плавок с актами спектрального анализа химсостава</div>
+              <div>✔ Сертификаты происхождения формы СТ-KZ и соответствия ГОСТ / ASTM</div>
+              <div>✔ Ультразвуковой контроль (УЗК) поковок и толстого листового проката</div>
+            </div>
+            <a href="about.html" class="btn btn-primary btn-sm">Подробнее о сертификации и лицензиях →</a>
+          </div>
+
+          <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:20px;">
+            <h4 style="font-size:15px; font-weight:800; color:#0f172a; margin-bottom:10px;">Реквизиты поставщика:</h4>
+            <div style="font-size:13px; color:#475569; display:flex; flex-direction:column; gap:6px;">
+              <div><strong>Наименование:</strong> ТОО «Ferrotech Kazakhstan»</div>
+              <div><strong>БИН:</strong> <span style="font-family:var(--font-mono); font-weight:700; color:#0f172a;">210840029145</span></div>
+              <div><strong>НДС:</strong> Свидетельство плательщика НДС 12%</div>
+              <div><strong>Банк:</strong> АО «Halyk Bank» (Народный Банк Казахстана)</div>
+              <div><strong>ИИК:</strong> <span style="font-family:var(--font-mono); font-size:11px;">KZ456012345678901234</span></div>
+              <div><strong>БИК:</strong> HSBKKZKX</div>
+              <div><strong>E-mail:</strong> info@ferrotech.kz</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </section>
+  </main>
 
-  <!-- Warehouses Network in Kazakhstan -->
-  <section class="section">
-    <div class="container">
-      <div class="text-center">
-        <span class="section-tag">Логистическая сеть в РК</span>
-        <h2 class="section-title">Филиалы и склады ТОО «Ferrotech Kazakhstan»</h2>
-        <p class="section-subtitle">Собственные крытые базы с кран-балками и ж/д путями в индустриальных центрах Казахстана</p>
-      </div>
-
-      <div class="wh-grid-4">
-        <div class="wh-card">
-          <span class="wh-city-badge">Астана (Главный хаб)</span>
-          <h3>Складской комплекс №1</h3>
-          <div class="wh-details">
-            <p><strong>Адрес:</strong> Индустриальный парк №1, ул. А184, 14</p>
-            <p><strong>Телефон:</strong> +7 (7172) 97-20-40</p>
-            <p>12 000 м² крытого хранения. Полный сортамент нержавейки, цветмета, титана и полимеров. Кран-балки 16т, авто- и ж/д рампа.</p>
-          </div>
-        </div>
-
-        <div class="wh-card">
-          <span class="wh-city-badge">Алматы (Юг)</span>
-          <h3>Склад цветного проката</h3>
-          <div class="wh-details">
-            <p><strong>Адрес:</strong> Жетысуский р-н, пр. Рыскулова, 143/1</p>
-            <p><strong>Телефон:</strong> +7 (727) 350-50-60</p>
-            <p>Склад меди, латуни, бронзы, алюминия и тонкостенных нержавеющих труб. Собственный цех ленточнопильной резки.</p>
-          </div>
-        </div>
-
-        <div class="wh-card">
-          <span class="wh-city-badge">Караганда (Центр)</span>
-          <h3>Склад спецсталей и поковок</h3>
-          <div class="wh-details">
-            <p><strong>Адрес:</strong> Октябрьский р-н, Учетный кв. 134, стр. 28</p>
-            <p><strong>Телефон:</strong> +7 (7212) 94-05-30</p>
-            <p>Склад конструкционных сталей, поковок, чугуна и спецсплавов для горнорудных и металлургических комбинатов РК.</p>
-          </div>
-        </div>
-
-        <div class="wh-card">
-          <span class="wh-city-badge">Атырау (Нефтегаз)</span>
-          <h3>Склад нефтегазовых сплавов</h3>
-          <div class="wh-details">
-            <p><strong>Адрес:</strong> Промзона, трасса Атырау — Доссор, 8</p>
-            <p><strong>Телефон:</strong> +7 (7122) 76-12-10</p>
-            <p>Коррозионно-стойкие стали AISI 316L, 12Х18Н10Т, титан и фланцы под проекты Тенгиз, Кашаган, Карачаганак.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Tender Credentials & Standards -->
-  <section class="section" style="background-color:var(--color-brand-slate); color:#ffffff;">
-    <div class="container" style="display:grid; grid-template-columns:1.2fr 0.8fr; gap:40px; align-items:center;">
-      <div>
-        <span class="section-tag" style="color:#38bdf8;">Государственные закупки и Недропользователи</span>
-        <h2 style="font-size:26px; font-weight:800; margin-bottom:14px;">Поставки по требованиям «Самрук-Қазына» и Goszakup.gov.kz</h2>
-        <p style="color:#cbd5e1; font-size:14px; line-height:1.6; margin-bottom:16px;">
-          ТОО «Ferrotech Kazakhstan» является добросовестным участником закупок квазигосударственного сектора и недропользователей РК. Каждая поставка сопровождается сертификатом завода, паспортом плавки, сертификатом СТ-KZ и гарантией соответствия ГОСТ.
-        </p>
-        <ul style="color:#e2e8f0; font-size:13px; display:flex; flex-direction:column; gap:8px;">
-          <li>✔ Электронные счета-фактуры (ЭСФ) и сопроводительные накладные (СНТ)</li>
-          <li>✔ Паспорта плавок и акты спектрального анализа химсостава</li>
-          <li>✔ Ультразвуковой контроль (УЗК) поковок и толстого листа</li>
-        </ul>
-      </div>
-
-      <div style="background:var(--color-brand-card); padding:24px; border-radius:var(--radius-md); border:1px solid #334155;">
-        <h4 style="font-size:16px; font-weight:700; margin-bottom:10px;">Реквизиты ТОО «Ferrotech Kazakhstan»</h4>
-        <p style="font-size:13px; color:#94a3b8; margin-bottom:6px;"><strong>БИН:</strong> 210840029145</p>
-        <p style="font-size:13px; color:#94a3b8; margin-bottom:6px;"><strong>НДС:</strong> Плательщик НДС 12%</p>
-        <p style="font-size:13px; color:#94a3b8; margin-bottom:6px;"><strong>Банк:</strong> АО «Halyk Bank» / АО «Банк ЦентрКредит»</p>
-        <p style="font-size:13px; color:#94a3b8; margin-bottom:16px;"><strong>E-mail:</strong> info@ferrotech.kz</p>
-        <a href="about.html" class="btn btn-outline btn-block" style="color:#ffffff; border-color:#475569;">Подробнее о компании и сертификатах →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
+  <!-- Clean, Compact Site Footer -->
   <footer class="site-footer">
     <div class="container footer-columns-grid">
       <div class="footer-brand">
@@ -411,15 +530,14 @@
           <li><a href="catalog.html?cat=nonferrous">Цветной металлопрокат</a></li>
           <li><a href="catalog.html?cat=special">Спецсплавы и нихром</a></li>
           <li><a href="catalog.html?cat=titanium">Титан и никель</a></li>
-          <li><a href="catalog.html?cat=polymers">Инженерные полимеры</a></li>
           <li><a href="catalog.html?cat=ferrous">Черный прокат</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h4>Сервисы и разделы</h4>
+        <h4>Инструменты и сервисы</h4>
         <ul>
-          <li><a href="calculator.html">Калькулятор массы металла</a></li>
+          <li><a href="calculator.html">Калькулятор металла 23MET</a></li>
           <li><a href="services.html">Услуги резки и гибки</a></li>
           <li><a href="delivery.html">Склады и доставка по РК</a></li>
           <li><a href="about.html">О компании и сертификатах</a></li>
@@ -482,6 +600,29 @@
     </div>
   </div>
 
+  <!-- Modal: Quick Fast RFQ Modal (Pop-up instead of cluttering hero) -->
+  <div class="modal-overlay hidden" id="quickRfqModal">
+    <div class="modal-card" style="max-width:500px;">
+      <div class="modal-header">
+        <h3>Быстрый расчет коммерческого предложения (15 мин)</h3>
+        <button class="modal-close-btn" onclick="document.getElementById('quickRfqModal').classList.add('hidden')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size:13px; color:#64748b; margin-bottom:14px;">Вставьте список нужных марок металлов, типоразмеров и объемов — менеджер подготовит официальный расчет со сроками отгрузки в РК:</p>
+        <form onsubmit="event.preventDefault(); showToast('Заявка принята! Менеджер подготовит КП в течение 15 минут.'); document.getElementById('quickRfqModal').classList.add('hidden');">
+          <div style="margin-bottom:12px;">
+            <textarea rows="4" placeholder="Например: Лист 12Х18Н10Т 3мм — 300 кг, Труба 89х4.0 — 500 м, Медь М1 ф20 — 100 кг..." style="width:100%; padding:10px; border:1px solid #cbd5e1; border-radius:4px; font-size:13px;" required></textarea>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px;">
+            <input type="tel" placeholder="+7 (7__) ___-__-__" style="padding:9px; border:1px solid #cbd5e1; border-radius:4px; font-size:13px;" required>
+            <input type="email" placeholder="snab@company.kz" style="padding:9px; border:1px solid #cbd5e1; border-radius:4px; font-size:13px;" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block btn-lg">Получить расчет КП (Тенге ₸ с НДС)</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <!-- Modal: Callback -->
   <div class="modal-overlay hidden" id="callbackModal">
     <div class="modal-card" style="max-width:420px;">
@@ -502,5 +643,97 @@
 
   <div id="toastContainer" class="toast-container"></div>
   <script src="app.js"></script>
+
+  <!-- Homepage Interactive Hub Switcher Logic -->
+  <script>
+    function switchHubTab(tabId, clickedBtn) {
+      // Switch active tab button in Hub Header
+      document.querySelectorAll(".hub-tab-btn").forEach(btn => {
+        btn.classList.remove("active");
+        btn.setAttribute("aria-selected", "false");
+      });
+      const targetBtn = document.getElementById("tabBtn-" + tabId.replace("tab-", ""));
+      if (targetBtn) {
+        targetBtn.classList.add("active");
+        targetBtn.setAttribute("aria-selected", "true");
+      } else if (clickedBtn && clickedBtn.classList.contains("hub-tab-btn")) {
+        clickedBtn.classList.add("active");
+        clickedBtn.setAttribute("aria-selected", "true");
+      }
+
+      // Switch active dock pill
+      document.querySelectorAll(".dock-pill").forEach(pill => pill.classList.remove("active"));
+      if (clickedBtn && clickedBtn.classList.contains("dock-pill")) {
+        clickedBtn.classList.add("active");
+      } else {
+        const matchingPill = document.querySelector(`.dock-pill[onclick*="${tabId}"]`);
+        if (matchingPill) matchingPill.classList.add("active");
+      }
+
+      // Switch active panel
+      document.querySelectorAll(".hub-panel").forEach(panel => panel.classList.remove("active"));
+      const activePanel = document.getElementById(tabId);
+      if (activePanel) activePanel.classList.add("active");
+
+      // Smooth scroll directly to hub console so user doesn't have to scroll manually
+      const hub = document.getElementById("hubConsole");
+      if (hub) {
+        const yOffset = -70; // offset for sticky dock
+        const y = hub.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        if (Math.abs(window.pageYOffset - y) > 60) {
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      }
+    }
+
+    // Quick Express Calculator logic for home tab
+    function runHomeQuickCalc() {
+      const prodSelect = document.getElementById("homeCalcProduct");
+      const weightPerUnit = parseFloat(prodSelect.value) || 1.0;
+      const tons = parseFloat(document.getElementById("homeCalcTons").value) || 0;
+      const pricePerTon = parseFloat(document.getElementById("homeCalcPrice").value) || 0;
+      const lenOne = parseFloat(document.getElementById("homeCalcLenOne").value) || 11.7;
+
+      const totalKg = tons * 1000;
+      const meters = totalKg / weightPerUnit;
+      const count = lenOne > 0 ? (meters / lenOne) : 0;
+      const totalCost = Math.round(tons * pricePerTon);
+
+      document.getElementById("homeResMeters").textContent = meters.toLocaleString("ru-RU", { maximumFractionDigits: 2 }) + " м";
+      document.getElementById("homeResCount").textContent = count.toLocaleString("ru-RU", { maximumFractionDigits: 1 }) + " шт";
+      document.getElementById("homeResCost").textContent = totalCost.toLocaleString("ru-RU") + " ₸";
+    }
+
+    function addHomeQuickCalcToQuote() {
+      const prodSelect = document.getElementById("homeCalcProduct");
+      const selectedOpt = prodSelect.options[prodSelect.selectedIndex];
+      const prodName = selectedOpt.getAttribute("data-name") || "Металлопрокат";
+      const tons = document.getElementById("homeCalcTons").value || "1";
+      const meters = document.getElementById("homeResMeters").textContent;
+      const cost = document.getElementById("homeResCost").textContent;
+
+      QuoteManager.addItem({
+        title: prodName,
+        material: "ГОСТ / СТ РК",
+        size: "По расчету",
+        quantity: `${tons} т (${meters})`,
+        price: cost
+      });
+
+      showToast(`Расчет "${prodName}" добавлен в спецификацию (КП)!`);
+    }
+
+    function downloadPricelistExcelQuick() {
+      if (typeof downloadPricelistExcel === "function") {
+        downloadPricelistExcel();
+      } else {
+        window.location.href = "catalog.html";
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      runHomeQuickCalc();
+    });
+  </script>
 </body>
 </html>

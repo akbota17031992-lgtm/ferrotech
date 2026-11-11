@@ -930,3 +930,117 @@ function openOfficialKpDocument() {
   };
 }
 
+/**
+ * Universal Quick RFQ Modal Creator & Opener
+ */
+function openQuickRfqModal() {
+  let modal = document.getElementById("quickRfqModal");
+  if (!modal) {
+    modal = document.createElement("div");
+    modal.id = "quickRfqModal";
+    modal.className = "modal-overlay hidden";
+    modal.innerHTML = `
+      <div class="modal-card" style="max-width:500px;">
+        <div class="modal-header">
+          <h3>Быстрый расчет коммерческого предложения (15 мин)</h3>
+          <button class="modal-close-btn" onclick="document.getElementById('quickRfqModal').classList.add('hidden')">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p style="font-size:13px; color:#64748b; margin-bottom:14px;">Вставьте список нужных марок металлов, типоразмеров и объемов — менеджер подготовит официальный расчет со сроками отгрузки в РК:</p>
+          <form onsubmit="event.preventDefault(); showToast('Заявка принята! Менеджер подготовит КП в течение 15 минут.'); document.getElementById('quickRfqModal').classList.add('hidden');">
+            <div style="margin-bottom:12px;">
+              <textarea rows="4" placeholder="Например: Лист 12Х18Н10Т 3мм — 300 кг, Труба 89х4.0 — 500 м, Медь М1 ф20 — 100 кг..." style="width:100%; padding:10px; border:1px solid #cbd5e1; border-radius:4px; font-size:13px;" required></textarea>
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px;">
+              <input type="tel" placeholder="+7 (7__) ___-__-__" style="padding:9px; border:1px solid #cbd5e1; border-radius:4px; font-size:13px;" required>
+              <input type="email" placeholder="snab@company.kz" style="padding:9px; border:1px solid #cbd5e1; border-radius:4px; font-size:13px;" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block btn-lg">Получить расчет КП (Тенге ₸ с НДС)</button>
+          </form>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+    modal.onclick = (e) => {
+      if (e.target === modal) modal.classList.add("hidden");
+    };
+  }
+  modal.classList.remove("hidden");
+}
+
+/**
+ * Universal Callback Modal Creator & Opener
+ */
+function openCallbackModal() {
+  let modal = document.getElementById("callbackModal");
+  if (!modal) {
+    modal = document.createElement("div");
+    modal.id = "callbackModal";
+    modal.className = "modal-overlay hidden";
+    modal.innerHTML = `
+      <div class="modal-card" style="max-width:420px;">
+        <div class="modal-header">
+          <h3>Заказать обратный звонок</h3>
+          <button class="modal-close-btn" onclick="document.getElementById('callbackModal').classList.add('hidden')">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p style="font-size:13px; color:#64748b; margin-bottom:16px;">Менеджер ТОО «Ferrotech Kazakhstan» перезвонит в течение 5 минут для консультации по наличию и ценам.</p>
+          <form onsubmit="event.preventDefault(); showToast('Спасибо! Мы перезвоним вам в течение 5 минут.'); document.getElementById('callbackModal').classList.add('hidden');">
+            <input type="text" placeholder="Ваше имя" style="width:100%; padding:9px; border:1px solid #e2e8f0; border-radius:4px; margin-bottom:12px; font-size:13px;" required>
+            <input type="tel" placeholder="+7 (7__) ___-__-__" style="width:100%; padding:9px; border:1px solid #e2e8f0; border-radius:4px; margin-bottom:16px; font-size:13px;" required>
+            <button type="submit" class="btn btn-primary btn-block btn-lg">Жду звонка</button>
+          </form>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+    modal.onclick = (e) => {
+      if (e.target === modal) modal.classList.add("hidden");
+    };
+  }
+  modal.classList.remove("hidden");
+}
+
+/**
+ * Universal Price-list Excel/CSV exporter (with UTF-8 BOM)
+ */
+function downloadPricelistExcel() {
+  const headers = [
+    "Код позиции",
+    "Наименование",
+    "Категория",
+    "Марка стали / сплава",
+    "Форма проката",
+    "Размеры",
+    "Стандарт (ГОСТ/ASTM/DIN)",
+    "Наличие и склады в РК",
+    "Цена с НДС 12% (₸/кг)",
+    "Минимальный объем заказа"
+  ];
+
+  const rows = FERRO_PRODUCTS.map(p => [
+    p.id,
+    `"${(p.name || '').replace(/"/g, '""')}"`,
+    `"${(p.catName || '').replace(/"/g, '""')}"`,
+    `"${(p.material || '').replace(/"/g, '""')}"`,
+    `"${(p.form || '').replace(/"/g, '""')}"`,
+    `"${(p.size || '').replace(/"/g, '""')}"`,
+    `"${(p.gost || '').replace(/"/g, '""')}"`,
+    `"${(p.warehouse || '').replace(/"/g, '""')}"`,
+    p.priceKg || 0,
+    `"${(p.minOrder || '').replace(/"/g, '""')}"`
+  ]);
+
+  const csvContent = "\uFEFF" + [headers.join(";"), ...rows.map(r => r.join(";"))].join("\r\n");
+  const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `Прайс_лист_ТОО_Ferrotech_Kazakhstan_${new Date().toISOString().slice(0, 10)}.csv`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  showToast("Прайс-лист успешно скачан в формате Excel (.CSV)!");
+}
+
+

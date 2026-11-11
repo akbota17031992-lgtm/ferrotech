@@ -75,7 +75,7 @@
           <a href="tel:+77172972040" class="contact-phone-primary" id="headerPhone">+7 (7172) 97-20-40</a>
           <span class="contact-schedule">Прием заявок: Пн-Пт 08:30 – 18:30</span>
         </div>
-        <button class="btn btn-outline" onclick="document.getElementById('callbackModal').classList.remove('hidden')">Звонок</button>
+        <button class="btn btn-outline" onclick="openCallbackModal()">Звонок</button>
         <button class="btn btn-primary cart-quote-trigger" id="openQuoteModal">
           <span>📋</span>
           <span>Заявка (КП)</span>
@@ -85,27 +85,43 @@
     </div>
   </header>
 
-  <!-- Navigation Bar -->
-  <nav class="site-nav-bar">
-    <div class="container nav-bar-inner">
-      <a href="catalog.html" class="catalog-menu-btn">
-        <span>☰</span>
-        <span>ВЕСЬ КАТАЛОГ МЕТАЛЛОПРОКАТА</span>
-      </a>
-      <div class="main-site-nav">
-        <a href="catalog.html?cat=stainless">Нержавеющая сталь</a>
-        <a href="catalog.html?cat=nonferrous">Цветные металлы</a>
-        <a href="catalog.html?cat=special">Спецсплавы и нихром</a>
-        <a href="catalog.html?cat=titanium">Титан и никель</a>
-        <a href="catalog.html?cat=polymers">Инженерные полимеры</a>
-        <a href="catalog.html?cat=ferrous">Черный прокат</a>
-        <a href="services.html">Услуги резки</a>
-        <a href="calculator.html" class="highlight-link">🧮 Калькулятор веса</a>
-        <a href="delivery.html">Доставка по РК</a>
-        <a href="contacts.html">Склады</a>
+  <!-- Sticky Quick Navigation Dock -->
+  <div class="quick-dock-bar">
+    <div class="container quick-dock-inner">
+      <div class="dock-pill-group">
+        <a href="index.html" class="dock-pill">
+          <span>🏠</span> <span>Главная</span>
+        </a>
+        <a href="catalog.html" class="dock-pill active">
+          <span>📦</span> <span>Каталог товаров</span>
+        </a>
+        <a href="calculator.html" class="dock-pill">
+          <span>🧮</span> <span>Калькулятор 23MET</span>
+        </a>
+        <a href="services.html" class="dock-pill">
+          <span>✂️</span> <span>Услуги резки</span>
+        </a>
+        <a href="delivery.html" class="dock-pill">
+          <span>🚚</span> <span>Склады и доставка</span>
+        </a>
+        <a href="about.html" class="dock-pill">
+          <span>📜</span> <span>О компании</span>
+        </a>
+        <a href="contacts.html" class="dock-pill">
+          <span>📞</span> <span>Контакты</span>
+        </a>
+      </div>
+
+      <div style="display:flex; align-items:center; gap:10px;">
+        <button type="button" class="dock-pill" onclick="openQuickRfqModal()" style="background:var(--color-primary); color:#ffffff; border-color:var(--color-primary); cursor:pointer;">
+          <span>⚡</span> <span>Быстрый расчет КП</span>
+        </button>
+        <a href="https://wa.me/77005557080?text=%D0%A1%D3%99%D0%BB%D0%B5%D0%BC%D0%B5%D1%82%D1%81%D1%96%D0%B7%20%D0%B1%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D1%82%D0%BE%D0%B2%D0%B0%D1%80%20%D0%B2%20%D0%A2%D0%9E%D0%9E%20Ferrotech" target="_blank" class="dock-pill" style="background:#25d366; color:#ffffff; border-color:#25d366;">
+          <span>💬</span> <span>WhatsApp</span>
+        </a>
       </div>
     </div>
-  </nav>
+  </div>
 
   <!-- Breadcrumbs -->
   <div class="breadcrumbs-bar">

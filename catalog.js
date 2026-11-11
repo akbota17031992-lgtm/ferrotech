@@ -29,13 +29,27 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function initCatalogUI() {
+  // Sync active category pill on initial load
+  syncCategoryPills(currentCategory);
+
+  // Quick category pills clicks
+  document.querySelectorAll(".cat-pill").forEach(btn => {
+    btn.addEventListener("click", () => {
+      currentCategory = btn.dataset.cat || "all";
+      syncCategoryPills(currentCategory);
+      syncSidebarCategories(currentCategory);
+      currentPage = 1;
+      renderCatalog();
+    });
+  });
+
   // Sidebar category clicks
   document.querySelectorAll(".cat-tree-item > a").forEach(link => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
-      document.querySelectorAll(".cat-tree-item").forEach(el => el.classList.remove("active"));
-      link.closest(".cat-tree-item").classList.add("active");
       currentCategory = link.dataset.cat || "all";
+      syncCategoryPills(currentCategory);
+      syncSidebarCategories(currentCategory);
       currentPage = 1;
       renderCatalog();
     });
@@ -85,6 +99,26 @@ function initCatalogUI() {
       renderCatalog();
     });
   }
+}
+
+function syncCategoryPills(cat) {
+  document.querySelectorAll(".cat-pill").forEach(pill => {
+    if (pill.dataset.cat === cat) {
+      pill.classList.add("active");
+    } else {
+      pill.classList.remove("active");
+    }
+  });
+}
+
+function syncSidebarCategories(cat) {
+  document.querySelectorAll(".cat-tree-item").forEach(item => {
+    if (item.dataset.cat === cat) {
+      item.classList.add("active");
+    } else {
+      item.classList.remove("active");
+    }
+  });
 }
 
 function getFilteredProducts() {
