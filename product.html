@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Карточка товара — ТОО Ferrotech Казахстан</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Top Utility Bar -->
+  <div class="site-top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <div class="city-select-box">
+          <span>📍</span>
+          <select id="citySelect">
+            <option value="ast" selected>г. Астана (Центральный хаб)</option>
+            <option value="alm">г. Алматы</option>
+            <option value="krg">г. Караганда</option>
+            <option value="atr">г. Атырау (Нефтегазовый сектор)</option>
+            <option value="shym">г. Шымкент</option>
+          </select>
+        </div>
+        <span class="vat-notice">✓ Плательщик НДС 12% • ЭСФ и СНТ</span>
+      </div>
+      <div class="top-bar-right">
+        <div class="top-links">
+          <a href="calculator.html">Калькулятор металла</a>
+          <a href="services.html">Услуги резки</a>
+          <a href="delivery.html">Склады и доставка</a>
+          <a href="about.html">О компании</a>
+          <a href="contacts.html">Контакты</a>
+        </div>
+        <div class="top-lang-switch">
+          <span class="lang-btn active">РУС</span>
+          <span>|</span>
+          <span class="lang-btn">ҚАЗ</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Brand Header -->
+  <header class="site-main-header">
+    <div class="container main-header-inner">
+      <div class="brand-block">
+        <a href="index.html" class="brand-link">
+          <span class="brand-icon">⬢</span>
+          <span>FERRO<span class="brand-accent">TECH</span><span class="brand-country-badge">KZ</span></span>
+        </a>
+        <span class="brand-subtext">Специальная металлургия Казахстана</span>
+      </div>
+
+      <!-- Mega Search with Autocomplete -->
+      <div class="header-search-box">
+        <div class="search-field-wrap">
+          <input 
+            type="text" 
+            id="globalSearch" 
+            placeholder="Поиск по марке стали, ГОСТ, размерам (напр. 12Х18Н10Т, медь М1, ВТ1-0, нихром)..." 
+            autocomplete="off"
+          >
+          <button class="search-btn" id="searchSubmitBtn">Найти</button>
+        </div>
+        <div id="searchDropdown" class="search-suggest-dropdown hidden"></div>
+      </div>
+
+      <!-- Header Tools & Phone -->
+      <div class="header-right-tools">
+        <div class="contact-meta-block">
+          <a href="tel:+77172972040" class="contact-phone-primary" id="headerPhone">+7 (7172) 97-20-40</a>
+          <span class="contact-schedule">Прием заявок: Пн-Пт 08:30 – 18:30</span>
+        </div>
+        <button class="btn btn-outline" onclick="document.getElementById('callbackModal').classList.remove('hidden')">Звонок</button>
+        <button class="btn btn-primary cart-quote-trigger" id="openQuoteModal">
+          <span>📋</span>
+          <span>Заявка (КП)</span>
+          <span class="cart-badge" id="quoteCountBadge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav class="site-nav-bar">
+    <div class="container nav-bar-inner">
+      <a href="catalog.html" class="catalog-menu-btn">
+        <span>☰</span>
+        <span>ВЕСЬ КАТАЛОГ МЕТАЛЛОПРОКАТА</span>
+      </a>
+      <div class="main-site-nav">
+        <a href="catalog.html?cat=stainless">Нержавеющая сталь</a>
+        <a href="catalog.html?cat=nonferrous">Цветные металлы</a>
+        <a href="catalog.html?cat=special">Спецсплавы и нихром</a>
+        <a href="catalog.html?cat=titanium">Титан и никель</a>
+        <a href="catalog.html?cat=polymers">Инженерные полимеры</a>
+        <a href="catalog.html?cat=ferrous">Черный прокат</a>
+        <a href="services.html">Услуги резки</a>
+        <a href="calculator.html" class="highlight-link">🧮 Калькулятор веса</a>
+        <a href="delivery.html">Доставка по РК</a>
+        <a href="contacts.html">Склады</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumbs-bar">
+    <div class="container">
+      <ul class="breadcrumbs-list">
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="catalog.html">Каталог металлопроката</a></li>
+        <li class="current" id="crumbProductTitle">Товар</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Product Detail Content -->
+  <main class="container" style="padding-top:20px; padding-bottom:60px;">
+    <div class="product-detail-grid">
+      <!-- Left: Visual Blueprint / Spec Box -->
+      <div class="product-gallery-box">
+        <div class="product-placeholder-icon">📐</div>
+        <h3 style="font-size:16px; font-weight:700; margin-bottom:8px; text-align:center;">Заводской металлопрокат по ГОСТ / СТ РК</h3>
+        <p style="font-size:12px; color:#64748b; text-align:center; max-width:320px; margin-bottom:16px;">
+          Сертификат качества завода-изготовителя с указанием номера плавки и химсостава прилагается к каждой поставке.
+        </p>
+        <div style="display:flex; gap:8px;">
+          <span class="stock-tag in-stock">100% Входной контроль</span>
+          <span class="stock-tag order">УЗК контроль</span>
+        </div>
+      </div>
+
+      <!-- Right: Product Information & Purchase Box -->
+      <div class="product-order-box">
+        <div class="prod-meta-tags">
+          <span class="stock-tag in-stock" id="prodDetailGost">ГОСТ</span>
+          <span style="font-size:12px; color:#64748b;">• Склады: <strong id="prodDetailWh" style="color:#0f172a;">Астана</strong></span>
+        </div>
+
+        <h1 class="prod-title-h1" id="prodDetailTitle">Загрузка...</h1>
+
+        <div class="prod-price-hero">
+          <div>
+            <span style="display:block; font-size:11px; color:#64748b; text-transform:uppercase; font-weight:600;">Цена за кг (Тенге ₸ с НДС 12%):</span>
+            <span class="prod-price-val" id="prodDetailPrice">0 ₸</span>
+          </div>
+          <span style="font-size:12px; color:#059669; font-weight:600;">✔ В наличии на складе в РК</span>
+        </div>
+
+        <div class="prod-quick-specs" id="prodDetailSpecsList">
+          <!-- Rendered by product.js -->
+        </div>
+
+        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:16px; margin-bottom:20px;">
+          <div style="display:flex; align-items:center; gap:16px; margin-bottom:14px;">
+            <div style="flex:1;">
+              <label for="prodDetailQty" style="display:block; font-size:12px; font-weight:600; color:#475569; margin-bottom:4px;">Количество / Объем партии:</label>
+              <input type="number" id="prodDetailQty" value="1" min="1" style="width:100%; padding:9px 12px; border:1px solid #cbd5e1; border-radius:4px; font-size:14px; font-family:var(--font-mono); font-weight:700;">
+            </div>
+            <div style="font-size:12px; color:#64748b;">
+              Мин. объем отгрузки: <br><strong id="prodDetailMinOrder" style="color:#0f172a;">1 шт</strong>
+            </div>
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <button class="btn btn-primary btn-lg" id="prodDetailAddQuoteBtn">+ Добавить в заявку (КП)</button>
+            <a href="#" class="btn btn-outline" id="prodDetailWaBtn" target="_blank" style="border-color:#25d366; color:#128c7e; font-weight:700;">
+              📲 Запросить счет сразу в WhatsApp менеджера
+            </a>
+          </div>
+        </div>
+
+        <p style="font-size:12px; color:#64748b; line-height:1.5;">
+          * Осуществляем резку в размер (ленточнопил, лазерная и гидроабразивная резка). Укажите нужные размеры при отправке спецификации.
+        </p>
+      </div>
+    </div>
+
+    <!-- Product Tabs: Chemical Composition & Engineering Specs -->
+    <div class="prod-tabs-wrap">
+      <div class="prod-tab-nav">
+        <button class="prod-tab-btn active" data-tab="tabDesc">Описание и применение</button>
+        <button class="prod-tab-btn" data-tab="tabChem">Химический состав по ГОСТ / СТ РК</button>
+        <button class="prod-tab-btn" data-tab="tabServices">Услуги резки и доставка</button>
+      </div>
+
+      <div class="prod-tab-pane active" id="tabDesc">
+        <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:8px; padding:24px;">
+          <h3 style="font-size:16px; font-weight:700; margin-bottom:10px;">Эксплуатационные свойства и назначение</h3>
+          <p id="prodDetailDesc" style="color:#475569; font-size:14px; line-height:1.7; margin-bottom:16px;"></p>
+          <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:16px; margin-top:20px;">
+            <div style="padding:14px; background:#f8fafc; border-radius:6px; border:1px solid #e2e8f0;">
+              <strong style="display:block; font-size:13px; margin-bottom:4px;">Паспорт качества</strong>
+              <p style="font-size:12px; color:#64748b;">Номер плавки, акт спектрального анализа и сертификат завода в комплекте документов.</p>
+            </div>
+            <div style="padding:14px; background:#f8fafc; border-radius:6px; border:1px solid #e2e8f0;">
+              <strong style="display:block; font-size:13px; margin-bottom:4px;">Доставка по Казахстану</strong>
+              <p style="font-size:12px; color:#64748b;">Отгрузка со складов в Астане, Алматы, Караганде и Атырау собственным автопарком или ТК.</p>
+            </div>
+            <div style="padding:14px; background:#f8fafc; border-radius:6px; border:1px solid #e2e8f0;">
+              <strong style="display:block; font-size:13px; margin-bottom:4px;">ЭСФ и СНТ</strong>
+              <p style="font-size:12px; color:#64748b;">Официальное оформление сделок в тенге с НДС 12% через ИС ЭСФ Республики Казахстан.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="prod-tab-pane" id="tabChem">
+        <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:8px; padding:24px;">
+          <h3 style="font-size:16px; font-weight:700; margin-bottom:14px;">Химический состав элементов материала (%)</h3>
+          <div class="table-responsive">
+            <table class="data-table" style="text-align:center; font-family:var(--font-mono);">
+              <thead id="prodDetailChemHead"></thead>
+              <tbody id="prodDetailChemBody"></tbody>
+            </table>
+          </div>
+          <p style="font-size:11px; color:#64748b; margin-top:10px;">* Массовая доля элементов регламентируется соответствующим государственным стандартом (ГОСТ / СТ РК / ASTM).</p>
+        </div>
+      </div>
+
+      <div class="prod-tab-pane" id="tabServices">
+        <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:8px; padding:24px;">
+          <h3 style="font-size:16px; font-weight:700; margin-bottom:10px;">Обработка металлопроката перед отгрузкой</h3>
+          <p style="color:#475569; font-size:14px; line-height:1.6; margin-bottom:16px;">
+            Вам не нужно переплачивать за лишний металл или искать сторонних подрядчиков по резке. На наших базах в Астане и Алматы работают высокоточные станки:
+          </p>
+          <ul style="font-size:13px; color:#334155; display:flex; flex-direction:column; gap:8px;">
+            <li>✔ <strong>Ленточнопильная резка:</strong> резка кругов и поковок под 90° без заусенцев (от 450 ₸/рез).</li>
+            <li>✔ <strong>Лазерная резка ЧПУ:</strong> фигурный раскрой листов до 30 мм по вашим чертежам DXF/DWG (от 280 ₸/м).</li>
+            <li>✔ <strong>Гидроабразивная резка:</strong> резка титана, нержавейки и меди без температурного перегрева (от 750 ₸/м).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-columns-grid">
+      <div class="footer-brand">
+        <h3>FERROTECH KZ</h3>
+        <p>ТОО «Ferrotech Kazakhstan» — комплексные поставки металлопроката и спецсплавов для промышленных предприятий Казахстана.</p>
+        <p style="font-size:11px; color:#64748b;">© 2026 ТОО «Ferrotech Kazakhstan». БИН 210840029145.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Каталог продукции</h4>
+        <ul>
+          <li><a href="catalog.html?cat=stainless">Нержавеющая сталь</a></li>
+          <li><a href="catalog.html?cat=nonferrous">Цветной металлопрокат</a></li>
+          <li><a href="catalog.html?cat=special">Спецсплавы и нихром</a></li>
+          <li><a href="catalog.html?cat=titanium">Титан и никель</a></li>
+          <li><a href="catalog.html?cat=polymers">Инженерные полимеры</a></li>
+          <li><a href="catalog.html?cat=ferrous">Черный прокат</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Инженерные сервисы</h4>
+        <ul>
+          <li><a href="calculator.html">Калькулятор массы металла</a></li>
+          <li><a href="services.html">Услуги лазерной и гидроабразивной резки</a></li>
+          <li><a href="delivery.html">Склады и доставка по Казахстану</a></li>
+          <li><a href="about.html">О компании и сертификатах</a></li>
+          <li><a href="contacts.html">Контакты всех филиалов</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-contacts-col">
+        <h4>Контакты отдела продаж</h4>
+        <p><strong>Астана:</strong> <a href="tel:+77172972040">+7 (7172) 97-20-40</a></p>
+        <p><strong>Алматы:</strong> <a href="tel:+77273505060">+7 (727) 350-50-60</a></p>
+        <p><strong>WhatsApp:</strong> <a href="https://wa.me/77005557080">+7 (700) 555-70-80</a></p>
+        <p><strong>E-mail:</strong> <a href="mailto:info@ferrotech.kz">info@ferrotech.kz</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal: Quote Specification / Cart -->
+  <div class="modal-overlay hidden" id="quoteModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Спецификация заявки на поставку в РК (Тенге ₸)</h3>
+        <button class="modal-close-btn" id="closeQuoteModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="quoteEmptyNotice" class="quote-empty-notice" style="text-align:center; padding:30px; background:#f1f5f9; border-radius:6px; color:#64748b;">
+          Ваш список позиций пуст. Добавьте товары из каталога.
+        </div>
+        <div id="quoteItemsTableWrap" class="hidden">
+          <table class="data-table" style="margin-bottom:20px;">
+            <thead>
+              <tr>
+                <th>Наименование / Марка</th>
+                <th>Размер</th>
+                <th>Кол-во</th>
+                <th>Удалить</th>
+              </tr>
+            </thead>
+            <tbody id="quoteItemsList"></tbody>
+          </table>
+        </div>
+
+        <form id="quoteFinalForm" onsubmit="event.preventDefault(); showToast('Заявка принята в ТОО Ferrotech Kazakhstan! Менеджер свяжется с вами.'); QuoteManager.clear(); document.getElementById('quoteModal').classList.add('hidden');">
+          <h4 style="font-size:14px; font-weight:700; margin-bottom:12px; border-top:1px solid #e2e8f0; padding-top:16px;">Реквизиты для выставления счета (с НДС 12%):</h4>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px;">
+            <input type="text" placeholder="ТОО / ИП / БИН (12 цифр)" style="padding:9px; border:1px solid #e2e8f0; border-radius:4px; font-size:13px;" required>
+            <input type="text" placeholder="Контактное лицо (ФИО)" style="padding:9px; border:1px solid #e2e8f0; border-radius:4px; font-size:13px;" required>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px;">
+            <input type="tel" placeholder="+7 (7__) ___-__-__" style="padding:9px; border:1px solid #e2e8f0; border-radius:4px; font-size:13px;" required>
+            <input type="email" placeholder="snab@company.kz" style="padding:9px; border:1px solid #e2e8f0; border-radius:4px; font-size:13px;" required>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:10px; margin-top:16px;">
+            <button type="submit" class="btn btn-primary btn-block btn-lg">Отправить заявку в отдел сбыта</button>
+            <button type="button" class="btn btn-outline btn-block" id="exportQuoteToWaBtn" style="border-color:#25d366; color:#128c7e;">📲 Отправить спецификацию напрямую в WhatsApp</button>
+            <button type="button" class="btn btn-outline btn-block" id="printQuoteBtn">🖨️ Распечатать официальный бланк КП</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="toastContainer" class="toast-container"></div>
+  <script src="app.js"></script>
+  <script src="product.js"></script>
+</body>
+</html>
+

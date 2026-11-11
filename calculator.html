@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Онлайн-калькулятор металлопроката — ТОО Ferrotech Казахстан</title>
+  <meta name="description" content="Точный теоретический расчет веса и стоимости металлопроката онлайн: лист, труба, круг, полоса, шестигранник, швеллер. Плотности нержавейки, меди, латуни, титана. Цены в тенге.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .calc-hero-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      margin-top: 30px;
+    }
+    .calc-tabs-header {
+      display: flex;
+      background-color: var(--color-brand-slate);
+      overflow-x: auto;
+      border-bottom: 2px solid var(--color-primary);
+    }
+    .calc-tab {
+      background: none;
+      border: none;
+      color: #94a3b8;
+      padding: 14px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s;
+    }
+    .calc-tab:hover, .calc-tab.active {
+      color: #ffffff;
+      background-color: var(--color-brand-card);
+    }
+    .calc-tab.active {
+      border-bottom: 3px solid var(--color-primary);
+    }
+    .calc-main-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+    }
+    .calc-inputs-pane {
+      padding: 30px;
+      border-right: 1px solid var(--color-border);
+    }
+    .calc-results-pane {
+      padding: 30px;
+      background-color: var(--color-bg-subtle);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .result-sheet {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+    .res-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .res-val {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 16px;
+    }
+    .res-val-big {
+      font-family: var(--font-mono);
+      font-weight: 800;
+      font-size: 24px;
+      color: var(--color-primary);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Utility Bar -->
+  <div class="site-top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <div class="city-select-box">
+          <span>📍</span>
+          <select id="citySelect">
+            <option value="ast" selected>г. Астана (Центральный хаб)</option>
+            <option value="alm">г. Алматы</option>
+            <option value="krg">г. Караганда</option>
+            <option value="atr">г. Атырау (Нефтегазовый сектор)</option>
+            <option value="shym">г. Шымкент</option>
+          </select>
+        </div>
+        <span class="vat-notice">✓ Плательщик НДС 12% • ЭСФ и СНТ</span>
+      </div>
+      <div class="top-bar-right">
+        <div class="top-links">
+          <a href="calculator.html">Калькулятор металла</a>
+          <a href="services.html">Услуги резки</a>
+          <a href="delivery.html">Склады и доставка</a>
+          <a href="about.html">О компании</a>
+          <a href="contacts.html">Контакты</a>
+        </div>
+        <div class="top-lang-switch">
+          <span class="lang-btn active">РУС</span>
+          <span>|</span>
+          <span class="lang-btn">ҚАЗ</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Brand Header -->
+  <header class="site-main-header">
+    <div class="container main-header-inner">
+      <div class="brand-block">
+        <a href="index.html" class="brand-link">
+          <span class="brand-icon">⬢</span>
+          <span>FERRO<span class="brand-accent">TECH</span><span class="brand-country-badge">KZ</span></span>
+        </a>
+        <span class="brand-subtext">Специальная металлургия Казахстана</span>
+      </div>
+
+      <div class="header-search-box">
+        <div class="search-field-wrap">
+          <input 
+            type="text" 
+            id="globalSearch" 
+            placeholder="Поиск по марке стали, ГОСТ, размерам..." 
+            autocomplete="off"
+          >
+          <button class="search-btn" id="searchSubmitBtn">Найти</button>
+        </div>
+        <div id="searchDropdown" class="search-suggest-dropdown hidden"></div>
+      </div>
+
+      <div class="header-right-tools">
+        <div class="contact-meta-block">
+          <a href="tel:+77172972040" class="contact-phone-primary" id="headerPhone">+7 (7172) 97-20-40</a>
+          <span class="contact-schedule">Прием заявок: Пн-Пт 08:30 – 18:30</span>
+        </div>
+        <button class="btn btn-outline" onclick="document.getElementById('callbackModal').classList.remove('hidden')">Звонок</button>
+        <button class="btn btn-primary cart-quote-trigger" id="openQuoteModal">
+          <span>📋</span>
+          <span>Заявка (КП)</span>
+          <span class="cart-badge" id="quoteCountBadge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav class="site-nav-bar">
+    <div class="container nav-bar-inner">
+      <a href="catalog.html" class="catalog-menu-btn">
+        <span>☰</span>
+        <span>ВЕСЬ КАТАЛОГ МЕТАЛЛОПРОКАТА</span>
+      </a>
+      <div class="main-site-nav">
+        <a href="catalog.html?cat=stainless">Нержавеющая сталь</a>
+        <a href="catalog.html?cat=nonferrous">Цветные металлы</a>
+        <a href="catalog.html?cat=special">Спецсплавы и нихром</a>
+        <a href="catalog.html?cat=titanium">Титан и никель</a>
+        <a href="catalog.html?cat=polymers">Инженерные полимеры</a>
+        <a href="catalog.html?cat=ferrous">Черный прокат</a>
+        <a href="services.html">Услуги резки</a>
+        <a href="calculator.html" class="highlight-link active">🧮 Калькулятор веса</a>
+        <a href="delivery.html">Доставка по РК</a>
+        <a href="contacts.html">Склады</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumbs-bar">
+    <div class="container">
+      <ul class="breadcrumbs-list">
+        <li><a href="index.html">Главная</a></li>
+        <li class="current">Металлокалькулятор онлайн</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-title-banner">
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+        <div>
+          <span class="section-tag" style="color:#f59e0b; background:rgba(217,119,6,0.15); padding:4px 10px; border-radius:4px; font-weight:700; font-size:12px;">ГОСТ & СТ РК КАЛЬКУЛЯТОР 23MET</span>
+          <h1 style="margin-top:6px;">Калькулятор металлопроката онлайн</h1>
+          <p>Мгновенный расчет веса по длине, длины по весу, количества штук по тоннажу, площади и стоимости металлопроката в Казахстане (в тенге ₸ с НДС 12%).</p>
+        </div>
+        <div style="background:#1e293b; padding:12px 18px; border-radius:8px; border:1px solid #334155; text-align:right;">
+          <div style="font-size:11px; color:#94a3b8; text-transform:uppercase;">Базовый ГОСТ стандарт:</div>
+          <div id="met23GostLabel" style="font-size:14px; font-weight:800; color:#38bdf8; font-family:var(--font-mono);">ГОСТ 5781-82 / ГОСТ 34028-2016</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="container" style="padding-bottom:60px;">
+    <!-- 23MET.RU Master Metal Calculator Card -->
+    <div class="met23-card">
+      <!-- 4 Metal Category Tabs -->
+      <div class="met23-type-tabs">
+        <button class="met23-type-tab active" data-category="ferrous">
+          <span>🖤</span> <span>Черный металлопрокат</span>
+        </button>
+        <button class="met23-type-tab" data-category="stainless">
+          <span>🛡️</span> <span>Нержавеющий металлопрокат</span>
+        </button>
+        <button class="met23-type-tab" data-category="nonferrous">
+          <span>🔶</span> <span>Цветной металлопрокат</span>
+        </button>
+        <button class="met23-type-tab" data-category="hardware">
+          <span>🔩</span> <span>Метизы и крепеж</span>
+        </button>
+      </div>
+
+      <!-- 3 Dropdown Selectors Row -->
+      <div class="met23-selector-row">
+        <div class="met23-select-group">
+          <label for="select-naimenovanie">1. Вид металлопроката:</label>
+          <select id="select-naimenovanie" class="met23-select"></select>
+        </div>
+
+        <div class="met23-select-group">
+          <label for="select-size">2. Типоразмер (ГОСТ):</label>
+          <select id="select-size" class="met23-select"></select>
+        </div>
+
+        <div class="met23-select-group">
+          <label for="select-cvet">3. Марка металла / Плотность:</label>
+          <select id="select-cvet" class="met23-select"></select>
+        </div>
+      </div>
+
+      <!-- Optional Custom Size Row -->
+      <div id="met23CustomSizeRow" class="met23-custom-size-row hidden">
+        <span style="font-size:12px; font-weight:700; color:#92400e;">Параметры произвольного сечения (мм):</span>
+        <div class="met23-custom-field">
+          <label>Толщина / Диаметр (мм):</label>
+          <input type="number" id="customDim1" value="10" step="0.1">
+        </div>
+        <div class="met23-custom-field">
+          <label>Ширина (мм):</label>
+          <input type="number" id="customDim2" value="100" step="0.5">
+        </div>
+        <div class="met23-custom-field">
+          <label>Стенка (мм):</label>
+          <input type="number" id="customDim3" value="3.0" step="0.1">
+        </div>
+        <button type="button" class="btn btn-sm btn-primary" onclick="recalculateCustomSize()">Применить размер</button>
+      </div>
+
+      <!-- Interactive 23MET Tiles Matrix -->
+      <div class="met23-matrix-section">
+        <div class="met23-matrix-title">
+          <h3>
+            <span>⚡</span>
+            <span>Интерактивный расчет партии</span>
+          </h3>
+          <span class="met23-recalc-hint">
+            <span>⇄</span> Введите любое значение — остальные поля пересчитаются мгновенно
+          </span>
+        </div>
+
+        <div class="met23-grid">
+          <!-- Tile: Tons -->
+          <div class="met23-tile">
+            <div class="met23-tile-header">
+              <span class="met23-tile-label">Масса партии</span>
+              <span class="met23-tile-unit">тонны (т)</span>
+            </div>
+            <div class="met23-input-wrap">
+              <input type="number" id="calc_w" class="met23-input" step="any" placeholder="0.000" inputmode="decimal">
+            </div>
+          </div>
+
+          <!-- Tile: Kilograms -->
+          <div class="met23-tile">
+            <div class="met23-tile-header">
+              <span class="met23-tile-label">Масса партии</span>
+              <span class="met23-tile-unit">килограммы (кг)</span>
+            </div>
+            <div class="met23-input-wrap">
+              <input type="number" id="calc_kg" class="met23-input" step="any" placeholder="0.00" inputmode="decimal">
+            </div>
+          </div>
+
+          <!-- Tile: Meters / Length -->
+          <div class="met23-tile">
+            <div class="met23-tile-header">
+              <span class="met23-tile-label">Общий метраж</span>
+              <span class="met23-tile-unit"><span class="met23-dynamic-unit">м</span></span>
+            </div>
+            <div class="met23-input-wrap">
+              <input type="number" id="calc_l" class="met23-input" step="any" placeholder="0.00" inputmode="decimal">
+            </div>
+          </div>
+
+          <!-- Tile: Length 1 pc + Quick Chips -->
+          <div class="met23-tile">
+            <div class="met23-tile-header">
+              <span class="met23-tile-label">Длина 1 шт. / раскрой</span>
+              <span class="met23-tile-unit">метры (м)</span>
+            </div>
+            <div class="met23-input-wrap">
+              <input type="number" id="calc_one" class="met23-input" step="any" value="11.7" inputmode="decimal">
+            </div>
+            <div class="met23-quick-chips">
+              <button type="button" class="met23-chip" data-len="1">1 м</button>
+              <button type="button" class="met23-chip" data-len="3">3 м</button>
+              <button type="button" class="met23-chip" data-len="6">6 м</button>
+              <button type="button" class="met23-chip" data-len="11.7">11.7 м</button>
+              <button type="button" class="met23-chip" data-len="12">12 м</button>
+            </div>
+          </div>
+
+          <!-- Tile: Piece Count -->
+          <div class="met23-tile">
+            <div class="met23-tile-header">
+              <span class="met23-tile-label">Количество в штуках</span>
+              <span class="met23-tile-unit">штук (шт)</span>
+            </div>
+            <div class="met23-input-wrap">
+              <input type="number" id="calc_count" class="met23-input" step="any" placeholder="0" inputmode="decimal">
+            </div>
+          </div>
+
+          <!-- Tile: Surface Area -->
+          <div class="met23-tile">
+            <div class="met23-tile-header">
+              <span class="met23-tile-label">Площадь поверхности</span>
+              <span class="met23-tile-unit">кв. метры (м²)</span>
+            </div>
+            <div class="met23-input-wrap">
+              <input type="number" id="calc_area" class="met23-input" step="any" placeholder="0.00" inputmode="decimal">
+            </div>
+          </div>
+
+          <!-- Tile: Price per Ton -->
+          <div class="met23-tile">
+            <div class="met23-tile-header">
+              <span class="met23-tile-label">Цена в РК (с НДС 12%)</span>
+              <span class="met23-tile-unit">₸ / тонну</span>
+            </div>
+            <div class="met23-input-wrap">
+              <input type="number" id="calc_price_ton" class="met23-input" step="1000" value="420000" inputmode="decimal">
+            </div>
+          </div>
+
+          <!-- Tile: Price per Kg -->
+          <div class="met23-tile">
+            <div class="met23-tile-header">
+              <span class="met23-tile-label">Цена в РК (с НДС 12%)</span>
+              <span class="met23-tile-unit">₸ / кг</span>
+            </div>
+            <div class="met23-input-wrap">
+              <input type="number" id="calc_price_kg" class="met23-input" step="1" value="420" inputmode="decimal">
+            </div>
+          </div>
+
+          <!-- Tile: Highlight Total Cost -->
+          <div class="met23-tile highlight">
+            <div class="met23-tile-header">
+              <span class="met23-tile-label">ИТОГОВАЯ СТОИМОСТЬ ПАРТИИ (ТОО FERROTECH KZ)</span>
+              <span class="met23-tile-unit" style="background:#0284c7; color:#ffffff;">НДС 12% ВКЛЮЧЕН</span>
+            </div>
+            <div class="met23-input-wrap" style="margin-top:6px;">
+              <div id="calc_total_cost" class="met23-input" style="font-size:28px;">0 ₸</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Engineering Reference & Blueprint Details Panel -->
+      <div class="met23-spec-row">
+        <div class="met23-spec-details">
+          <div class="met23-spec-item">
+            <div class="label">Теоретический вес 1 ед.:</div>
+            <div class="value" id="specWeightPerM">0.888 кг/м</div>
+          </div>
+          <div class="met23-spec-item">
+            <div class="label">Длина в 1 тонне металла:</div>
+            <div class="value" id="specMetersPerTon">1 126.1 м/т</div>
+          </div>
+          <div class="met23-spec-item">
+            <div class="label">Плотность материала:</div>
+            <div class="value" id="specDensity">7.85 г/см³</div>
+          </div>
+          <div class="met23-spec-item">
+            <div class="label">Складское наличие:</div>
+            <div class="value" style="color:#059669; font-size:14px;">✓ Склады Астана / Алматы</div>
+          </div>
+        </div>
+
+        <!-- SVG Blueprint Cross-Section -->
+        <div class="met23-blueprint-box">
+          <div style="font-size:11px; font-weight:700; color:#64748b; margin-bottom:8px; text-transform:uppercase;">Чертеж профиля сечения (ГОСТ):</div>
+          <div id="met23BlueprintContainer"></div>
+        </div>
+      </div>
+
+      <!-- Action Buttons Strip -->
+      <div class="met23-actions-strip">
+        <button type="button" class="met23-btn-quote" id="met23AddToQuoteBtn">
+          <span>📋</span>
+          <span>Добавить расчет в спецификацию (КП)</span>
+        </button>
+        <button type="button" class="met23-btn-wa" id="met23WhatsAppBtn">
+          <span>💬</span>
+          <span>Запросить наличие в WhatsApp</span>
+        </button>
+        <button type="button" class="met23-btn-print" id="met23PrintBtn">
+          <span>🖨️</span>
+          <span>Распечатать расчет</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ГОСТ Таблица полного сортамента типоразмеров -->
+    <div class="met23-gost-table-section">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+        <div>
+          <h3>Справочная таблица типоразмеров по ГОСТ</h3>
+          <p>Кликните по любой строке в таблице, чтобы мгновенно подставить типоразмер в калькулятор:</p>
+        </div>
+        <a href="catalog.html" class="btn btn-outline btn-sm">Перейти в каталог готовой продукции →</a>
+      </div>
+
+      <div class="table-responsive">
+        <table class="met23-gost-table">
+          <thead>
+            <tr>
+              <th>Типоразмер</th>
+              <th>Теоретический вес единицы</th>
+              <th>Метров в 1 тонне</th>
+              <th>Выбрать размер</th>
+            </tr>
+          </thead>
+          <tbody id="met23GostTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Engineering Density Reference Table -->
+    <div style="margin-top:40px; background:#ffffff; border:1px solid #e2e8f0; border-radius:var(--radius-md); padding:28px;">
+      <h3 style="font-size:18px; font-weight:700; margin-bottom:8px;">Справочник плотности металлов и конструкционных полимеров (г/см³)</h3>
+      <p style="font-size:13px; color:#64748b; margin-bottom:20px;">
+        Эталонные справочные значения плотности материалов для расчета массы партий по нормативам ГОСТ и СТ РК:
+      </p>
+
+      <div class="table-responsive">
+        <table class="data-table" style="text-align:center; font-family:var(--font-mono); font-size:13px;">
+          <thead>
+            <tr>
+              <th>Материал</th>
+              <th>Плотность (г/см³)</th>
+              <th>Марки ГОСТ</th>
+              <th>Международный аналог</th>
+              <th>Складское наличие в РК</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Сталь углеродистая</td><td>7.85</td><td>Ст3сп, Сталь 20, 45</td><td>S235JR, AISI 1020</td><td>Астана / Караганда</td></tr>
+            <tr><td>Сталь нержавеющая</td><td>7.90 - 8.00</td><td>12Х18Н10Т, 08Х18Н10</td><td>AISI 304, AISI 321</td><td>Астана / Алматы</td></tr>
+            <tr><td>Алюминий и сплавы</td><td>2.70 - 2.80</td><td>АД31Т, Д16Т, АМг5</td><td>6063, 2024, 5083</td><td>Все склады РК</td></tr>
+            <tr><td>Медь электротехническая</td><td>8.96</td><td>М1, М2, М1т</td><td>Cu-ETP, CW004A</td><td>Астана / Алматы</td></tr>
+            <tr><td>Латунь автоматная</td><td>8.50</td><td>Л63, ЛС59-1</td><td>CuZn37, CuZn39Pb3</td><td>Алматы</td></tr>
+            <tr><td>Бронза оловянная/алюм.</td><td>8.20 - 8.80</td><td>БрАЖ9-4, БрОЦС5-5-5</td><td>CuAl9Fe4</td><td>Караганда</td></tr>
+            <tr><td>Титан и титановые сплавы</td><td>4.50 - 4.51</td><td>ВТ1-0, ВТ6, ПТ-7М</td><td>Grade 2, Grade 5</td><td>Атырау / Астана</td></tr>
+            <tr><td>Нихром (жаростойкий)</td><td>8.40</td><td>Х20Н80, Х15Н60</td><td>NiCr 80/20</td><td>Астана</td></tr>
+            <tr><td>Фторопласт (тефлон)</td><td>2.20</td><td>Ф-4 (PTFE)</td><td>Teflon Virgin</td><td>Все склады РК</td></tr>
+            <tr><td>Капролон (полиамид-6)</td><td>1.15</td><td>ПА-6 блочный</td><td>Nylon 6</td><td>Караганда / Астана</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-columns-grid">
+      <div class="footer-brand">
+        <h3>FERROTECH KZ</h3>
+        <p>ТОО «Ferrotech Kazakhstan» — надежный поставщик нержавеющего, цветного металлопроката и специальных сплавов на предприятия Казахстана.</p>
+        <p style="font-size:11px; color:#64748b;">© 2026 ТОО «Ferrotech Kazakhstan». БИН 210840029145.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Каталог проката</h4>
+        <ul>
+          <li><a href="catalog.html?cat=stainless">Нержавеющая сталь</a></li>
+          <li><a href="catalog.html?cat=nonferrous">Цветной металлопрокат</a></li>
+          <li><a href="catalog.html?cat=special">Спецсплавы и нихром</a></li>
+          <li><a href="catalog.html?cat=titanium">Титан и никель</a></li>
+          <li><a href="catalog.html?cat=polymers">Инженерные полимеры</a></li>
+          <li><a href="catalog.html?cat=ferrous">Черный прокат</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Сервисы и разделы</h4>
+        <ul>
+          <li><a href="calculator.html">Калькулятор массы металла</a></li>
+          <li><a href="services.html">Услуги резки и гибки</a></li>
+          <li><a href="delivery.html">Склады и доставка по РК</a></li>
+          <li><a href="about.html">О компании и сертификатах</a></li>
+          <li><a href="contacts.html">Контакты всех филиалов</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-contacts-col">
+        <h4>Контакты отдела продаж</h4>
+        <p><strong>Астана:</strong> <a href="tel:+77172972040">+7 (7172) 97-20-40</a></p>
+        <p><strong>Алматы:</strong> <a href="tel:+77273505060">+7 (727) 350-50-60</a></p>
+        <p><strong>WhatsApp:</strong> <a href="https://wa.me/77005557080">+7 (700) 555-70-80</a></p>
+        <p><strong>E-mail:</strong> <a href="mailto:info@ferrotech.kz">info@ferrotech.kz</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal: Quote Specification / Cart -->
+  <div class="modal-overlay hidden" id="quoteModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Спецификация заявки на поставку в РК (Тенге ₸)</h3>
+        <button class="modal-close-btn" id="closeQuoteModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="quoteEmptyNotice" class="quote-empty-notice" style="text-align:center; padding:30px; background:#f1f5f9; border-radius:6px; color:#64748b;">
+          Ваш список позиций пуст. Добавьте товары из каталога или рассчитайте на калькуляторе.
+        </div>
+        <div id="quoteItemsTableWrap" class="hidden">
+          <table class="data-table" style="margin-bottom:20px;">
+            <thead>
+              <tr>
+                <th>Наименование / Марка</th>
+                <th>Размер</th>
+                <th>Кол-во</th>
+                <th>Удалить</th>
+              </tr>
+            </thead>
+            <tbody id="quoteItemsList"></tbody>
+          </table>
+        </div>
+
+        <form id="quoteFinalForm" onsubmit="event.preventDefault(); showToast('Заявка принята в ТОО Ferrotech Kazakhstan! Менеджер свяжется с вами.'); QuoteManager.clear(); document.getElementById('quoteModal').classList.add('hidden');">
+          <h4 style="font-size:14px; font-weight:700; margin-bottom:12px; border-top:1px solid #e2e8f0; padding-top:16px;">Реквизиты для выставления счета (с НДС 12%):</h4>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px;">
+            <input type="text" placeholder="ТОО / ИП / БИН (12 цифр)" style="padding:9px; border:1px solid #e2e8f0; border-radius:4px; font-size:13px;" required>
+            <input type="text" placeholder="Контактное лицо (ФИО)" style="padding:9px; border:1px solid #e2e8f0; border-radius:4px; font-size:13px;" required>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px;">
+            <input type="tel" placeholder="+7 (7__) ___-__-__" style="padding:9px; border:1px solid #e2e8f0; border-radius:4px; font-size:13px;" required>
+            <input type="email" placeholder="snab@company.kz" style="padding:9px; border:1px solid #e2e8f0; border-radius:4px; font-size:13px;" required>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:10px; margin-top:16px;">
+            <button type="submit" class="btn btn-primary btn-block btn-lg">Отправить заявку в отдел сбыта</button>
+            <button type="button" class="btn btn-outline btn-block" id="exportQuoteToWaBtn" style="border-color:#25d366; color:#128c7e;">📲 Отправить спецификацию напрямую в WhatsApp</button>
+            <button type="button" class="btn btn-outline btn-block" id="printQuoteBtn">🖨️ Распечатать официальный бланк КП</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="toastContainer" class="toast-container"></div>
+  <script src="app.js"></script>
+  <script src="calculator.js"></script>
+</body>
+</html>
+

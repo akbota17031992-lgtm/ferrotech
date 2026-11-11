@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог металлопроката — ТОО Ferrotech Казахстан</title>
+  <meta name="description" content="Каталог цветного, нержавеющего, черного металлопроката и спецсплавов в Казахстане. Цены в тенге с НДС 12%, склады в Астане, Алматы, Караганде, Атырау.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Top Utility Bar -->
+  <div class="site-top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <div class="city-select-box">
+          <span>📍</span>
+          <select id="citySelect">
+            <option value="ast" selected>г. Астана (Центральный хаб)</option>
+            <option value="alm">г. Алматы</option>
+            <option value="krg">г. Караганда</option>
+            <option value="atr">г. Атырау (Нефтегазовый сектор)</option>
+            <option value="shym">г. Шымкент</option>
+          </select>
+        </div>
+        <span class="vat-notice">✓ Плательщик НДС 12% • ЭСФ и СНТ</span>
+      </div>
+      <div class="top-bar-right">
+        <div class="top-links">
+          <a href="calculator.html">Калькулятор металла</a>
+          <a href="services.html">Услуги резки</a>
+          <a href="delivery.html">Склады и доставка</a>
+          <a href="about.html">О компании</a>
+          <a href="contacts.html">Контакты</a>
+        </div>
+        <div class="top-lang-switch">
+          <span class="lang-btn active">РУС</span>
+          <span>|</span>
+          <span class="lang-btn">ҚАЗ</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Brand Header -->
+  <header class="site-main-header">
+    <div class="container main-header-inner">
+      <div class="brand-block">
+        <a href="index.html" class="brand-link">
+          <span class="brand-icon">⬢</span>
+          <span>FERRO<span class="brand-accent">TECH</span><span class="brand-country-badge">KZ</span></span>
+        </a>
+        <span class="brand-subtext">Специальная металлургия Казахстана</span>
+      </div>
+
+      <!-- Mega Search with Autocomplete -->
+      <div class="header-search-box">
+        <div class="search-field-wrap">
+          <input 
+            type="text" 
+            id="globalSearch" 
+            placeholder="Поиск по марке стали, ГОСТ, размерам (напр. 12Х18Н10Т, медь М1, ВТ1-0, нихром)..." 
+            autocomplete="off"
+          >
+          <button class="search-btn" id="searchSubmitBtn">Найти</button>
+        </div>
+        <div id="searchDropdown" class="search-suggest-dropdown hidden"></div>
+      </div>
+
+      <!-- Header Tools & Phone -->
+      <div class="header-right-tools">
+        <div class="contact-meta-block">
+          <a href="tel:+77172972040" class="contact-phone-primary" id="headerPhone">+7 (7172) 97-20-40</a>
+          <span class="contact-schedule">Прием заявок: Пн-Пт 08:30 – 18:30</span>
+        </div>
+        <button class="btn btn-outline" onclick="document.getElementById('callbackModal').classList.remove('hidden')">Звонок</button>
+        <button class="btn btn-primary cart-quote-trigger" id="openQuoteModal">
+          <span>📋</span>
+          <span>Заявка (КП)</span>
+          <span class="cart-badge" id="quoteCountBadge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav class="site-nav-bar">
+    <div class="container nav-bar-inner">
+      <a href="catalog.html" class="catalog-menu-btn" style="background-color:var(--color-primary-hover);">
+        <span>☰</span>
+        <span>КАТАЛОГ МЕТАЛЛОПРОКАТА</span>
+      </a>
+      <div class="main-site-nav">
+        <a href="catalog.html?cat=stainless">Нержавеющая сталь</a>
+        <a href="catalog.html?cat=nonferrous">Цветные металлы</a>
+        <a href="catalog.html?cat=special">Спецсплавы и нихром</a>
+        <a href="catalog.html?cat=titanium">Титан и никель</a>
+        <a href="catalog.html?cat=polymers">Инженерные полимеры</a>
+        <a href="catalog.html?cat=ferrous">Черный прокат</a>
+        <a href="services.html">Услуги резки</a>
+        <a href="calculator.html" class="highlight-link">🧮 Калькулятор веса</a>
+        <a href="delivery.html">Доставка по РК</a>
+        <a href="contacts.html">Склады</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumbs-bar">
+    <div class="container">
+      <ul class="breadcrumbs-list">
+        <li><a href="index.html">Главная</a></li>
+        <li class="current">Каталог металлопроката</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Page Title Banner -->
+  <div class="page-title-banner">
+    <div class="container">
+      <h1>Каталог металлопроката и сплавов в Казахстане</h1>
+      <p>Оптовые и розничные поставки редких марок сталей, цветного, нержавеющего и черного проката со складов в Астане, Алматы, Караганде и Атырау. Цены в тенге (₸) с учетом НДС 12%.</p>
+    </div>
+  </div>
+
+  <!-- Catalog Two-Column Layout -->
+  <main class="container">
+    <div class="catalog-layout">
+      <!-- Left Sidebar: Category Hierarchy -->
+      <aside class="catalog-sidebar">
+        <h3 class="sidebar-title">Категории проката</h3>
+        <ul class="cat-tree-list">
+          <li class="cat-tree-item active" data-cat="all">
+            <a href="#" data-cat="all">
+              <span>Все позиции</span>
+              <span class="cat-count">60 000+</span>
+            </a>
+          </li>
+          <li class="cat-tree-item" data-cat="stainless">
+            <a href="#" data-cat="stainless">
+              <span>Нержавеющая сталь</span>
+              <span class="cat-count">14 200</span>
+            </a>
+            <div class="cat-sub-list">
+              <a href="#" data-cat="stainless">Лист нержавеющий (12Х18Н10Т, 304)</a>
+              <a href="#" data-cat="stainless">Трубы бесшовные и сварные</a>
+              <a href="#" data-cat="stainless">Круги и калиброванный пруток</a>
+            </div>
+          </li>
+          <li class="cat-tree-item" data-cat="nonferrous">
+            <a href="#" data-cat="nonferrous">
+              <span>Цветной металлопрокат</span>
+              <span class="cat-count">18 500</span>
+            </a>
+            <div class="cat-sub-list">
+              <a href="#" data-cat="nonferrous">Медный прокат (М1, М2, М3)</a>
+              <a href="#" data-cat="nonferrous">Латунь (Л63, ЛС59-1)</a>
+              <a href="#" data-cat="nonferrous">Бронзовые прутки (БрАЖ, БрОЦС)</a>
+              <a href="#" data-cat="nonferrous">Алюминиевый прокат (Д16Т, АМг)</a>
+            </div>
+          </li>
+          <li class="cat-tree-item" data-cat="special">
+            <a href="#" data-cat="special">
+              <span>Спецсплавы и тугоплавкие</span>
+              <span class="cat-count">6 400</span>
+            </a>
+            <div class="cat-sub-list">
+              <a href="#" data-cat="special">Нихром (Х20Н80, Х15Н60)</a>
+              <a href="#" data-cat="special">Фехраль (Х23Ю5Т)</a>
+              <a href="#" data-cat="special">Молибден и вольфрам</a>
+            </div>
+          </li>
+          <li class="cat-tree-item" data-cat="titanium">
+            <a href="#" data-cat="titanium">
+              <span>Титан и никель</span>
+              <span class="cat-count">4 100</span>
+            </a>
+            <div class="cat-sub-list">
+              <a href="#" data-cat="titanium">Титан ВТ1-0, ВТ6 (прутки, листы)</a>
+              <a href="#" data-cat="titanium">Титановые трубы (ПТ-7М)</a>
+              <a href="#" data-cat="titanium">Никелевый прокат НП2</a>
+            </div>
+          </li>
+          <li class="cat-tree-item" data-cat="polymers">
+            <a href="#" data-cat="polymers">
+              <span>Инженерные полимеры</span>
+              <span class="cat-count">3 800</span>
+            </a>
+            <div class="cat-sub-list">
+              <a href="#" data-cat="polymers">Фторопласт Ф-4 (PTFE)</a>
+              <a href="#" data-cat="polymers">Капролон блочный ПА-6</a>
+              <a href="#" data-cat="polymers">Текстолит конструкционный</a>
+            </div>
+          </li>
+          <li class="cat-tree-item" data-cat="ferrous">
+            <a href="#" data-cat="ferrous">
+              <span>Черный и фасонный прокат</span>
+              <span class="cat-count">13 000</span>
+            </a>
+            <div class="cat-sub-list">
+              <a href="#" data-cat="ferrous">Трубы профильные 09Г2С</a>
+              <a href="#" data-cat="ferrous">Стальные круги 40ХН2МА, 30ХГСА</a>
+            </div>
+          </li>
+        </ul>
+
+        <!-- Fast Download Price-List Box -->
+        <div style="margin-top:24px; padding-top:18px; border-top:1px solid #e2e8f0; text-align:center;">
+          <h4 style="font-size:13px; font-weight:700; margin-bottom:8px;">Прайс-лист в Excel</h4>
+          <p style="font-size:11px; color:#64748b; margin-bottom:12px;">Актуальные остатки со складов в Астане и Алматы (с ценами в ₸)</p>
+          <button class="btn btn-outline btn-sm btn-block" onclick="downloadPricelistExcel()">📊 Скачать прайс (.CSV / Excel)</button>
+        </div>
+      </aside>
+
+      <!-- Right Main: Products List & Toolbar -->
+      <section>
+        <!-- Toolbar: Search within table, Form filter, Sort, View mode -->
+        <div class="catalog-toolbar">
+          <div class="toolbar-filters">
+            <div class="toolbar-group">
+              <input type="text" id="catalogSearchInput" placeholder="Поиск в каталоге..." style="min-width:200px;">
+            </div>
+            <div class="toolbar-group">
+              <label for="catalogFilterForm">Форма:</label>
+              <select id="catalogFilterForm">
+                <option value="all">Все формы</option>
+                <option value="Лист">Лист / Плита</option>
+                <option value="Круг">Круг / Пруток</option>
+                <option value="Труба">Труба</option>
+                <option value="Проволока">Проволока</option>
+                <option value="Полоса">Полоса / Шина</option>
+                <option value="Шестигранник">Шестигранник</option>
+                <option value="Стержень">Стержень (Полимеры)</option>
+              </select>
+            </div>
+            <div class="toolbar-group">
+              <label for="catalogSortSelect">Сортировка:</label>
+              <select id="catalogSortSelect">
+                <option value="default">По популярности</option>
+                <option value="price_asc">Сначала дешевле (₸)</option>
+                <option value="price_desc">Сначала дороже (₸)</option>
+                <option value="name_asc">По наименованию (А-Я)</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="display:flex; align-items:center; gap:16px;">
+            <span id="catalogTotalCount" style="font-size:13px; font-weight:600; color:#64748b;">Загрузка...</span>
+            <div class="view-mode-toggle">
+              <button class="view-mode-btn active" id="viewGridBtn" title="Сетка">⊞</button>
+              <button class="view-mode-btn" id="viewTableBtn" title="Таблица">☰</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Catalog Products Container (Rendered by catalog.js) -->
+        <div id="catalogOutputContainer"></div>
+
+        <!-- Pagination -->
+        <div class="pagination-wrap" id="catalogPagination"></div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" style="margin-top:60px;">
+    <div class="container footer-columns-grid">
+      <div class="footer-brand">
+        <h3>FERROTECH KZ</h3>
+        <p>ТОО «Ferrotech Kazakhstan» — комплексные поставки металлопроката и спецсплавов для промышленных предприятий Казахстана.</p>
+        <p style="font-size:11px; color:#64748b;">© 2026 ТОО «Ferrotech Kazakhstan». БИН 210840029145.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Каталог продукции</h4>
+        <ul>
+          <li><a href="catalog.html?cat=stainless">Нержавеющая сталь</a></li>
+          <li><a href="catalog.html?cat=nonferrous">Цветной металлопрокат</a></li>
+          <li><a href="catalog.html?cat=special">Спецсплавы и нихром</a></li>
+          <li><a href="catalog.html?cat=titanium">Титан и никель</a></li>
+          <li><a href="catalog.html?cat=polymers">Инженерные полимеры</a></li>
+          <li><a href="catalog.html?cat=ferrous">Черный прокат</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Инженерные сервисы</h4>
+        <ul>
+          <li><a href="calculator.html">Калькулятор массы металла</a></li>
+          <li><a href="services.html">Услуги лазерной и гидроабразивной резки</a></li>
+          <li><a href="delivery.html">Склады и доставка по Казахстану</a></li>
+          <li><a href="about.html">О компании и сертификатах</a></li>
+          <li><a href="contacts.html">Контакты всех филиалов</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-contacts-col">
+        <h4>Контакты отдела продаж</h4>
+        <p><strong>Астана:</strong> <a href="tel:+77172972040">+7 (7172) 97-20-40</a></p>
+        <p><strong>Алматы:</strong> <a href="tel:+77273505060">+7 (727) 350-50-60</a></p>
+        <p><strong>WhatsApp:</strong> <a href="https://wa.me/77005557080">+7 (700) 555-70-80</a></p>
+        <p><strong>E-mail:</strong> <a href="mailto:info@ferrotech.kz">info@ferrotech.kz</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal: Quote Specification / Cart -->
+  <div class="modal-overlay hidden" id="quoteModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Спецификация заявки на поставку в РК (Тенге ₸)</h3>
+        <button class="modal-close-btn" id="closeQuoteModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="quoteEmptyNotice" class="quote-empty-notice" style="text-align:center; padding:30px; background:#f1f5f9; border-radius:6px; color:#64748b;">
+          Ваш список позиций пуст. Добавьте товары из каталога.
+        </div>
+        <div id="quoteItemsTableWrap" class="hidden">
+          <table class="data-table" style="margin-bottom:20px;">
+            <thead>
+              <tr>
+                <th>Наименование / Марка</th>
+                <th>Размер</th>
+                <th>Кол-во</th>
+                <th>Удалить</th>
+              </tr>
+            </thead>
+            <tbody id="quoteItemsList"></tbody>
+          </table>
+        </div>
+
+        <form id="quoteFinalForm" onsubmit="event.preventDefault(); showToast('Заявка принята в ТОО Ferrotech Kazakhstan! Менеджер свяжется с вами.'); QuoteManager.clear(); document.getElementById('quoteModal').classList.add('hidden');">
+          <h4 style="font-size:14px; font-weight:700; margin-bottom:12px; border-top:1px solid #e2e8f0; padding-top:16px;">Реквизиты для выставления счета (с НДС 12%):</h4>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px;">
+            <input type="text" placeholder="ТОО / ИП / БИН (12 цифр)" style="padding:9px; border:1px solid #e2e8f0; border-radius:4px; font-size:13px;" required>
+            <input type="text" placeholder="Контактное лицо (ФИО)" style="padding:9px; border:1px solid #e2e8f0; border-radius:4px; font-size:13px;" required>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px;">
+            <input type="tel" placeholder="+7 (7__) ___-__-__" style="padding:9px; border:1px solid #e2e8f0; border-radius:4px; font-size:13px;" required>
+            <input type="email" placeholder="snab@company.kz" style="padding:9px; border:1px solid #e2e8f0; border-radius:4px; font-size:13px;" required>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:10px; margin-top:16px;">
+            <button type="submit" class="btn btn-primary btn-block btn-lg">Отправить заявку в отдел сбыта</button>
+            <button type="button" class="btn btn-outline btn-block" id="exportQuoteToWaBtn" style="border-color:#25d366; color:#128c7e;">📲 Отправить спецификацию напрямую в WhatsApp</button>
+            <button type="button" class="btn btn-outline btn-block" id="printQuoteBtn">🖨️ Распечатать официальный бланк КП</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="toastContainer" class="toast-container"></div>
+  <script src="app.js"></script>
+  <script src="catalog.js"></script>
+  <script>
+    function downloadPricelistExcel() {
+      let csv = "\uFEFF";
+      csv += "Наименование;Марка материала;Форма / Размер;ГОСТ / Стандарт;Склады в РК;Цена (Тенге ₸ с НДС 12%)\n";
+      FERRO_PRODUCTS.forEach(item => {
+        csv += `"${item.name}";"${item.material}";"${item.size}";"${item.gost}";"${item.warehouse}";"${item.priceKg} ₸/кг"\n`;
+      });
+      const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.setAttribute("href", url);
+      link.setAttribute("download", `Ferrotech_Kazakhstan_PriceList_${new Date().toISOString().slice(0, 10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      showToast("Прайс-лист ТОО Ferrotech Kazakhstan успешно выгружен в Excel!");
+    }
+  </script>
+</body>
+</html>
+

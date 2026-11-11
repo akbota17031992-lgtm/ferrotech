@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакты филиалов и складов — ТОО Ferrotech Казахстан</title>
+  <meta name="description" content="Адреса, телефоны и режим работы складов ТОО Ferrotech Kazakhstan в Астане, Алматы, Караганде, Атырау, Шымкенте. Отдел продаж, отгрузка металлопроката 24/7.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Top Utility Bar -->
+  <div class="site-top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <div class="city-select-box">
+          <span>📍</span>
+          <select id="citySelect">
+            <option value="ast" selected>г. Астана (Центральный хаб)</option>
+            <option value="alm">г. Алматы</option>
+            <option value="krg">г. Караганда</option>
+            <option value="atr">г. Атырау (Нефтегазовый сектор)</option>
+            <option value="shym">г. Шымкент</option>
+          </select>
+        </div>
+        <span class="vat-notice">✓ Плательщик НДС 12% • ЭСФ и СНТ</span>
+      </div>
+      <div class="top-bar-right">
+        <div class="top-links">
+          <a href="calculator.html">Калькулятор металла</a>
+          <a href="services.html">Услуги резки</a>
+          <a href="delivery.html">Склады и доставка</a>
+          <a href="about.html">О компании</a>
+          <a href="contacts.html">Контакты</a>
+        </div>
+        <div class="top-lang-switch">
+          <span class="lang-btn active">РУС</span>
+          <span>|</span>
+          <span class="lang-btn">ҚАЗ</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Brand Header -->
+  <header class="site-main-header">
+    <div class="container main-header-inner">
+      <div class="brand-block">
+        <a href="index.html" class="brand-link">
+          <span class="brand-icon">⬢</span>
+          <span>FERRO<span class="brand-accent">TECH</span><span class="brand-country-badge">KZ</span></span>
+        </a>
+        <span class="brand-subtext">Специальная металлургия Казахстана</span>
+      </div>
+
+      <div class="header-search-box">
+        <div class="search-field-wrap">
+          <input 
+            type="text" 
+            id="globalSearch" 
+            placeholder="Поиск по марке стали, ГОСТ, размерам..." 
+            autocomplete="off"
+          >
+          <button class="search-btn" id="searchSubmitBtn">Найти</button>
+        </div>
+        <div id="searchDropdown" class="search-suggest-dropdown hidden"></div>
+      </div>
+
+      <div class="header-right-tools">
+        <div class="contact-meta-block">
+          <a href="tel:+77172972040" class="contact-phone-primary" id="headerPhone">+7 (7172) 97-20-40</a>
+          <span class="contact-schedule">Прием заявок: Пн-Пт 08:30 – 18:30</span>
+        </div>
+        <button class="btn btn-outline" onclick="document.getElementById('callbackModal').classList.remove('hidden')">Звонок</button>
+        <button class="btn btn-primary cart-quote-trigger" id="openQuoteModal">
+          <span>📋</span>
+          <span>Заявка (КП)</span>
+          <span class="cart-badge" id="quoteCountBadge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav class="site-nav-bar">
+    <div class="container nav-bar-inner">
+      <a href="catalog.html" class="catalog-menu-btn">
+        <span>☰</span>
+        <span>ВЕСЬ КАТАЛОГ МЕТАЛЛОПРОКАТА</span>
+      </a>
+      <div class="main-site-nav">
+        <a href="catalog.html?cat=stainless">Нержавеющая сталь</a>
+        <a href="catalog.html?cat=nonferrous">Цветные металлы</a>
+        <a href="catalog.html?cat=special">Спецсплавы и нихром</a>
+        <a href="catalog.html?cat=titanium">Титан и никель</a>
+        <a href="catalog.html?cat=polymers">Инженерные полимеры</a>
+        <a href="catalog.html?cat=ferrous">Черный прокат</a>
+        <a href="services.html">Услуги резки</a>
+        <a href="calculator.html" class="highlight-link">🧮 Калькулятор веса</a>
+        <a href="delivery.html">Доставка по РК</a>
+        <a href="contacts.html" class="active">Склады</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumbs-bar">
+    <div class="container">
+      <ul class="breadcrumbs-list">
+        <li><a href="index.html">Главная</a></li>
+        <li class="current">Контакты и филиалы в Казахстане</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-title-banner">
+    <div class="container">
+      <h1>Контакты филиалов и складов ТОО «Ferrotech Kazakhstan»</h1>
+      <p>Центральные офисы и металлобазы в Астане, Алматы, Караганде, Атырау и Шымкенте. Телефоны, адреса для самовывоза и график работы.</p>
+    </div>
+  </div>
+
+  <main class="container section">
+    <div class="wh-grid-4">
+      <div class="wh-card">
+        <span class="wh-city-badge">г. Астана (Центральный офис)</span>
+        <h3>Головной склад и офис</h3>
+        <div class="wh-details">
+          <p><strong>Адрес:</strong> Индустриальный парк №1, ул. А184, здание 14</p>
+          <p><strong>Телефон:</strong> <a href="tel:+77172972040" style="color:#0284c7; font-weight:700;">+7 (7172) 97-20-40</a></p>
+          <p><strong>WhatsApp:</strong> <a href="https://wa.me/77005557080" style="color:#25d366; font-weight:700;">+7 (700) 555-70-80</a></p>
+          <p><strong>E-mail:</strong> astana@ferrotech.kz</p>
+          <p><strong>Режим склада:</strong> Пн-Пт 08:30 – 18:30</p>
+        </div>
+      </div>
+
+      <div class="wh-card">
+        <span class="wh-city-badge">г. Алматы (Юг)</span>
+        <h3>Филиал и склад цветного металла</h3>
+        <div class="wh-details">
+          <p><strong>Адрес:</strong> Жетысуский район, пр. Рыскулова, 143/1</p>
+          <p><strong>Телефон:</strong> <a href="tel:+77273505060" style="color:#0284c7; font-weight:700;">+7 (727) 350-50-60</a></p>
+          <p><strong>E-mail:</strong> almaty@ferrotech.kz</p>
+          <p><strong>Режим склада:</strong> Пн-Пт 09:00 – 18:00</p>
+        </div>
+      </div>
+
+      <div class="wh-card">
+        <span class="wh-city-badge">г. Караганда (Центр)</span>
+        <h3>Склад поковок и спецсталей</h3>
+        <div class="wh-details">
+          <p><strong>Адрес:</strong> Октябрьский р-н, Учетный кв. 134, стр. 28</p>
+          <p><strong>Телефон:</strong> <a href="tel:+77212940530" style="color:#0284c7; font-weight:700;">+7 (7212) 94-05-30</a></p>
+          <p><strong>E-mail:</strong> karaganda@ferrotech.kz</p>
+          <p><strong>Режим склада:</strong> Пн-Пт 08:00 – 17:00</p>
+        </div>
+      </div>
+
+      <div class="wh-card">
+        <span class="wh-city-badge">г. Атырау (Запад)</span>
+        <h3>Филиал для нефтегазового сектора</h3>
+        <div class="wh-details">
+          <p><strong>Адрес:</strong> Северная промзона, трасса Атырау — Доссор, 8</p>
+          <p><strong>Телефон:</strong> <a href="tel:+77122761210" style="color:#0284c7; font-weight:700;">+7 (7122) 76-12-10</a></p>
+          <p><strong>E-mail:</strong> atyrau@ferrotech.kz</p>
+          <p><strong>Режим склада:</strong> Пн-Пт 08:30 – 18:00</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feedback & Inquiry Form -->
+    <div style="margin-top:60px; background:#ffffff; border:1px solid #e2e8f0; border-radius:var(--radius-lg); padding:36px; box-shadow:var(--shadow-sm); max-width:800px; margin-left:auto; margin-right:auto;">
+      <h2 style="font-size:22px; font-weight:800; margin-bottom:8px; text-align:center;">Написать в центральный отдел сбыта</h2>
+      <p style="font-size:13px; color:#64748b; text-align:center; margin-bottom:24px;">Задайте вопрос по наличию, запросите оптовый прайс-лист или счет на оплату с НДС 12%</p>
+
+      <form onsubmit="event.preventDefault(); showToast('Ваше сообщение отправлено в отдел сбыта! Менеджер свяжется с вами.'); this.reset();">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px;">
+          <input type="text" placeholder="ТОО / ИП / ФИО" style="padding:10px; border:1px solid #cbd5e1; border-radius:4px; font-size:13px;" required>
+          <input type="tel" placeholder="+7 (7__) ___-__-__ (WhatsApp)" style="padding:10px; border:1px solid #cbd5e1; border-radius:4px; font-size:13px;" required>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px;">
+          <input type="email" placeholder="Ваш рабочий e-mail" style="padding:10px; border:1px solid #cbd5e1; border-radius:4px; font-size:13px;" required>
+          <select style="padding:10px; border:1px solid #cbd5e1; border-radius:4px; font-size:13px;">
+            <option>Интересует склад в г. Астана</option>
+            <option>Интересует склад в г. Алматы</option>
+            <option>Интересует склад в г. Караганда</option>
+            <option>Интересует склад в г. Атырау</option>
+            <option>Доставка в другой регион РК</option>
+          </select>
+        </div>
+        <div style="margin-bottom:18px;">
+          <textarea rows="4" placeholder="Текст сообщения или перечень позиций для расчета..." style="width:100%; padding:10px; border:1px solid #cbd5e1; border-radius:4px; font-size:13px;" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block btn-lg">Отправить обращение</button>
+      </form>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-columns-grid">
+      <div class="footer-brand">
+        <h3>FERROTECH KZ</h3>
+        <p>ТОО «Ferrotech Kazakhstan» — надежный поставщик нержавеющего, цветного металлопроката и специальных сплавов на предприятия Казахстана.</p>
+        <p style="font-size:11px; color:#64748b;">© 2026 ТОО «Ferrotech Kazakhstan». БИН 210840029145.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Каталог проката</h4>
+        <ul>
+          <li><a href="catalog.html?cat=stainless">Нержавеющая сталь</a></li>
+          <li><a href="catalog.html?cat=nonferrous">Цветной металлопрокат</a></li>
+          <li><a href="catalog.html?cat=special">Спецсплавы и нихром</a></li>
+          <li><a href="catalog.html?cat=titanium">Титан и никель</a></li>
+          <li><a href="catalog.html?cat=polymers">Инженерные полимеры</a></li>
+          <li><a href="catalog.html?cat=ferrous">Черный прокат</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Сервисы и разделы</h4>
+        <ul>
+          <li><a href="calculator.html">Калькулятор массы металла</a></li>
+          <li><a href="services.html">Услуги резки и гибки</a></li>
+          <li><a href="delivery.html">Склады и доставка по РК</a></li>
+          <li><a href="about.html">О компании и сертификатах</a></li>
+          <li><a href="contacts.html">Контакты всех филиалов</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-contacts-col">
+        <h4>Контакты отдела продаж</h4>
+        <p><strong>Астана:</strong> <a href="tel:+77172972040">+7 (7172) 97-20-40</a></p>
+        <p><strong>Алматы:</strong> <a href="tel:+77273505060">+7 (727) 350-50-60</a></p>
+        <p><strong>WhatsApp:</strong> <a href="https://wa.me/77005557080">+7 (700) 555-70-80</a></p>
+        <p><strong>E-mail:</strong> <a href="mailto:info@ferrotech.kz">info@ferrotech.kz</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toastContainer" class="toast-container"></div>
+  <script src="app.js"></script>
+</body>
+</html>
+

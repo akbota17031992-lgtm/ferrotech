@@ -1,0 +1,22 @@
+{
+  "name": "ferrotech-metal-portal",
+  "version": "1.0.0",
+  "description": "B2B Metal Trading & Special Alloys Portal for Ferrotech",
+  "main": "index.html",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "tunnel": "node start-tunnel.js"
+  },
+  "keywords": [
+    "metal-trading",
+    "b2b",
+    "stainless-steel",
+    "non-ferrous",
+    "metal-calculator",
+    "ferrotech"
+  ],
+  "author": "Ferrotech",
+  "license": "ISC"
+}
+

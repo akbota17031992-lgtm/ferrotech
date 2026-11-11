@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Доставка металлопроката по Казахстану и склады — ТОО Ferrotech</title>
+  <meta name="description" content="Условия доставки металлопроката по всему Казахстану. Склады в Астане, Алматы, Караганде, Атырау. Отгрузка день в день, авто- и ж/д доставка, самовывоз.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Top Utility Bar -->
+  <div class="site-top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <div class="city-select-box">
+          <span>📍</span>
+          <select id="citySelect">
+            <option value="ast" selected>г. Астана (Центральный хаб)</option>
+            <option value="alm">г. Алматы</option>
+            <option value="krg">г. Караганда</option>
+            <option value="atr">г. Атырау (Нефтегазовый сектор)</option>
+            <option value="shym">г. Шымкент</option>
+          </select>
+        </div>
+        <span class="vat-notice">✓ Плательщик НДС 12% • ЭСФ и СНТ</span>
+      </div>
+      <div class="top-bar-right">
+        <div class="top-links">
+          <a href="calculator.html">Калькулятор металла</a>
+          <a href="services.html">Услуги резки</a>
+          <a href="delivery.html">Склады и доставка</a>
+          <a href="about.html">О компании</a>
+          <a href="contacts.html">Контакты</a>
+        </div>
+        <div class="top-lang-switch">
+          <span class="lang-btn active">РУС</span>
+          <span>|</span>
+          <span class="lang-btn">ҚАЗ</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Brand Header -->
+  <header class="site-main-header">
+    <div class="container main-header-inner">
+      <div class="brand-block">
+        <a href="index.html" class="brand-link">
+          <span class="brand-icon">⬢</span>
+          <span>FERRO<span class="brand-accent">TECH</span><span class="brand-country-badge">KZ</span></span>
+        </a>
+        <span class="brand-subtext">Специальная металлургия Казахстана</span>
+      </div>
+
+      <div class="header-search-box">
+        <div class="search-field-wrap">
+          <input 
+            type="text" 
+            id="globalSearch" 
+            placeholder="Поиск по марке стали, ГОСТ, размерам..." 
+            autocomplete="off"
+          >
+          <button class="search-btn" id="searchSubmitBtn">Найти</button>
+        </div>
+        <div id="searchDropdown" class="search-suggest-dropdown hidden"></div>
+      </div>
+
+      <div class="header-right-tools">
+        <div class="contact-meta-block">
+          <a href="tel:+77172972040" class="contact-phone-primary" id="headerPhone">+7 (7172) 97-20-40</a>
+          <span class="contact-schedule">Прием заявок: Пн-Пт 08:30 – 18:30</span>
+        </div>
+        <button class="btn btn-outline" onclick="document.getElementById('callbackModal').classList.remove('hidden')">Звонок</button>
+        <button class="btn btn-primary cart-quote-trigger" id="openQuoteModal">
+          <span>📋</span>
+          <span>Заявка (КП)</span>
+          <span class="cart-badge" id="quoteCountBadge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav class="site-nav-bar">
+    <div class="container nav-bar-inner">
+      <a href="catalog.html" class="catalog-menu-btn">
+        <span>☰</span>
+        <span>ВЕСЬ КАТАЛОГ МЕТАЛЛОПРОКАТА</span>
+      </a>
+      <div class="main-site-nav">
+        <a href="catalog.html?cat=stainless">Нержавеющая сталь</a>
+        <a href="catalog.html?cat=nonferrous">Цветные металлы</a>
+        <a href="catalog.html?cat=special">Спецсплавы и нихром</a>
+        <a href="catalog.html?cat=titanium">Титан и никель</a>
+        <a href="catalog.html?cat=polymers">Инженерные полимеры</a>
+        <a href="catalog.html?cat=ferrous">Черный прокат</a>
+        <a href="services.html">Услуги резки</a>
+        <a href="calculator.html" class="highlight-link">🧮 Калькулятор веса</a>
+        <a href="delivery.html" class="active">Доставка по РК</a>
+        <a href="contacts.html">Склады</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumbs-bar">
+    <div class="container">
+      <ul class="breadcrumbs-list">
+        <li><a href="index.html">Главная</a></li>
+        <li class="current">Доставка и логистика в Казахстане</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-title-banner">
+    <div class="container">
+      <h1>Доставка металлопроката и сеть складов в Республике Казахстан</h1>
+      <p>Собственная логистическая инфраструктура, 4 центральных крытых металлобазы и отгрузка в любой регион РК от 1 дня с оформлением СНТ и ЭСФ.</p>
+    </div>
+  </div>
+
+  <main class="container section">
+    <!-- 4 Transport Methods -->
+    <div class="services-grid-3">
+      <div class="wh-card">
+        <div style="font-size:32px; margin-bottom:12px;">🚛</div>
+        <h3 style="font-size:17px; margin-bottom:8px;">Собственный автотранспорт</h3>
+        <p style="font-size:13px; color:#64748b; line-height:1.6;">
+          Шаланды и длинномеры грузоподъемностью до 25 тонн (длина до 13.6 м), оборудованные кониками под трубы, а также маневренные манипуляторы для городской доставки по Астане и Алматы.
+        </p>
+      </div>
+
+      <div class="wh-card">
+        <div style="font-size:32px; margin-bottom:12px;">🚆</div>
+        <h3 style="font-size:17px; margin-bottom:8px;">Железнодорожные поставки</h3>
+        <p style="font-size:13px; color:#64748b; line-height:1.6;">
+          Прямая отгрузка вагонами, полувагонами и 20/40-футовыми контейнерами с собственных ж/д тупиков в Астане и Караганде на подъездные пути предприятий.
+        </p>
+      </div>
+
+      <div class="wh-card">
+        <div style="font-size:32px; margin-bottom:12px;">📦</div>
+        <h3 style="font-size:17px; margin-bottom:8px;">Сборные грузы и экспресс-ТК</h3>
+        <p style="font-size:13px; color:#64748b; line-height:1.6;">
+          Отгрузка небольших партий редких сплавов (нихром, вольфрам, титан, фторопласт) от 1 кг транспортными компаниями (Jet Logistic, ABT, СДЭК, DPD) до дверей заказчика.
+        </p>
+      </div>
+    </div>
+
+    <!-- Warehouse Locations in Kazakhstan -->
+    <div style="margin-top:60px;">
+      <div class="text-center">
+        <span class="section-tag">Металлобазы в РК</span>
+        <h2 class="section-title">Складские комплексы ТОО «Ferrotech Kazakhstan»</h2>
+        <p class="section-subtitle">Крытое хранение металлопроката исключает коррозию и атмосферное воздействие</p>
+      </div>
+
+      <div class="wh-grid-4">
+        <div class="wh-card">
+          <span class="wh-city-badge">Астана (Центральный хаб)</span>
+          <h3>Складской комплекс №1</h3>
+          <div class="wh-details">
+            <p><strong>Адрес:</strong> Индустриальный парк №1, ул. А184, 14</p>
+            <p><strong>Телефон:</strong> +7 (7172) 97-20-40</p>
+            <p><strong>Площадь:</strong> 12 000 м² крытого хранения</p>
+            <p><strong>Оснащение:</strong> 3 кран-балки грузоподъемностью 16 тонн, автоматические весы до 60 тонн, ж/д ветка на 6 вагонов.</p>
+          </div>
+        </div>
+
+        <div class="wh-card">
+          <span class="wh-city-badge">Алматы</span>
+          <h3>Южный металлоцентр</h3>
+          <div class="wh-details">
+            <p><strong>Адрес:</strong> Жетысуский р-н, пр. Рыскулова, 143/1</p>
+            <p><strong>Телефон:</strong> +7 (727) 350-50-60</p>
+            <p><strong>Площадь:</strong> 8 500 м² крытого хранения</p>
+            <p><strong>Специализация:</strong> Цветной металл (медь, латунь, бронза, алюминий), тонкостенные нержавеющие трубы, цех резки.</p>
+          </div>
+        </div>
+
+        <div class="wh-card">
+          <span class="wh-city-badge">Караганда</span>
+          <h3>Склад спецсталей и поковок</h3>
+          <div class="wh-details">
+            <p><strong>Адрес:</strong> Октябрьский р-н, Учетный кв. 134, стр. 28</p>
+            <p><strong>Телефон:</strong> +7 (7212) 94-05-30</p>
+            <p><strong>Площадь:</strong> 7 000 м²</p>
+            <p><strong>Специализация:</strong> Инструментальные стали, поковки, чугун и толстый лист для горно-обогатительных предприятий.</p>
+          </div>
+        </div>
+
+        <div class="wh-card">
+          <span class="wh-city-badge">Атырау</span>
+          <h3>Нефтегазовый хаб Каспия</h3>
+          <div class="wh-details">
+            <p><strong>Адрес:</strong> Промзона, трасса Атырау — Доссор, 8</p>
+            <p><strong>Телефон:</strong> +7 (7122) 76-12-10</p>
+            <p><strong>Площадь:</strong> 5 000 м²</p>
+            <p><strong>Специализация:</strong> AISI 316L, 12Х18Н10Т, титановый прокат, фланцы под проекты Тенгиз, Кашаган, Карачаганак.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pickup rules -->
+    <div style="margin-top:50px; background:#ffffff; border:1px solid #e2e8f0; border-radius:var(--radius-md); padding:28px;">
+      <h3 style="font-size:18px; font-weight:700; margin-bottom:12px;">Правила самовывоза со складов ТОО «Ferrotech Kazakhstan»</h3>
+      <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:20px; font-size:13px; color:#475569; line-height:1.6;">
+        <div>
+          <strong style="color:#0f172a; display:block; margin-bottom:4px;">1. Документы для отгрузки</strong>
+          Оригинал доверенности от ТОО/ИП (типовая форма Д-1) с синей печатью или электронная доверенность, подписанная ЭЦП в ИС ЭСФ, и удостоверение личности водителя.
+        </div>
+        <div>
+          <strong style="color:#0f172a; display:block; margin-bottom:4px;">2. Требования к транспорту</strong>
+          Бортовой транспорт с открытым верхом для верхней погрузки кран-балкой. Автомобиль должен быть укомплектован крепежными ремнями и деревянными подкладками.
+        </div>
+        <div>
+          <strong style="color:#0f172a; display:block; margin-bottom:4px;">3. Скорость погрузки</strong>
+          Время погрузки стандартной партии при наличии доверенности — от 20 до 45 минут. Работает электронная очередь заезда.
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-columns-grid">
+      <div class="footer-brand">
+        <h3>FERROTECH KZ</h3>
+        <p>ТОО «Ferrotech Kazakhstan» — надежный поставщик нержавеющего, цветного металлопроката и специальных сплавов на предприятия Казахстана.</p>
+        <p style="font-size:11px; color:#64748b;">© 2026 ТОО «Ferrotech Kazakhstan». БИН 210840029145.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Каталог проката</h4>
+        <ul>
+          <li><a href="catalog.html?cat=stainless">Нержавеющая сталь</a></li>
+          <li><a href="catalog.html?cat=nonferrous">Цветной металлопрокат</a></li>
+          <li><a href="catalog.html?cat=special">Спецсплавы и нихром</a></li>
+          <li><a href="catalog.html?cat=titanium">Титан и никель</a></li>
+          <li><a href="catalog.html?cat=polymers">Инженерные полимеры</a></li>
+          <li><a href="catalog.html?cat=ferrous">Черный прокат</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Сервисы и разделы</h4>
+        <ul>
+          <li><a href="calculator.html">Калькулятор массы металла</a></li>
+          <li><a href="services.html">Услуги резки и гибки</a></li>
+          <li><a href="delivery.html">Склады и доставка по РК</a></li>
+          <li><a href="about.html">О компании и сертификатах</a></li>
+          <li><a href="contacts.html">Контакты всех филиалов</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-contacts-col">
+        <h4>Контакты отдела продаж</h4>
+        <p><strong>Астана:</strong> <a href="tel:+77172972040">+7 (7172) 97-20-40</a></p>
+        <p><strong>Алматы:</strong> <a href="tel:+77273505060">+7 (727) 350-50-60</a></p>
+        <p><strong>WhatsApp:</strong> <a href="https://wa.me/77005557080">+7 (700) 555-70-80</a></p>
+        <p><strong>E-mail:</strong> <a href="mailto:info@ferrotech.kz">info@ferrotech.kz</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toastContainer" class="toast-container"></div>
+  <script src="app.js"></script>
+</body>
+</html>
+

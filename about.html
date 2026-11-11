@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>О компании ТОО Ferrotech Kazakhstan — Спецметаллургия и прокат в РК</title>
+  <meta name="description" content="Информация о компании ТОО Ferrotech Kazakhstan. Поставщик специальной металлургии, цветного и нержавеющего проката. БИН 210840029145, сертификаты СТ-KZ, тендеры Самрук-Казына.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Top Utility Bar -->
+  <div class="site-top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <div class="city-select-box">
+          <span>📍</span>
+          <select id="citySelect">
+            <option value="ast" selected>г. Астана (Центральный хаб)</option>
+            <option value="alm">г. Алматы</option>
+            <option value="krg">г. Караганда</option>
+            <option value="atr">г. Атырау (Нефтегазовый сектор)</option>
+            <option value="shym">г. Шымкент</option>
+          </select>
+        </div>
+        <span class="vat-notice">✓ Плательщик НДС 12% • ЭСФ и СНТ</span>
+      </div>
+      <div class="top-bar-right">
+        <div class="top-links">
+          <a href="calculator.html">Калькулятор металла</a>
+          <a href="services.html">Услуги резки</a>
+          <a href="delivery.html">Склады и доставка</a>
+          <a href="about.html">О компании</a>
+          <a href="contacts.html">Контакты</a>
+        </div>
+        <div class="top-lang-switch">
+          <span class="lang-btn active">РУС</span>
+          <span>|</span>
+          <span class="lang-btn">ҚАЗ</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Brand Header -->
+  <header class="site-main-header">
+    <div class="container main-header-inner">
+      <div class="brand-block">
+        <a href="index.html" class="brand-link">
+          <span class="brand-icon">⬢</span>
+          <span>FERRO<span class="brand-accent">TECH</span><span class="brand-country-badge">KZ</span></span>
+        </a>
+        <span class="brand-subtext">Специальная металлургия Казахстана</span>
+      </div>
+
+      <div class="header-search-box">
+        <div class="search-field-wrap">
+          <input 
+            type="text" 
+            id="globalSearch" 
+            placeholder="Поиск по марке стали, ГОСТ, размерам..." 
+            autocomplete="off"
+          >
+          <button class="search-btn" id="searchSubmitBtn">Найти</button>
+        </div>
+        <div id="searchDropdown" class="search-suggest-dropdown hidden"></div>
+      </div>
+
+      <div class="header-right-tools">
+        <div class="contact-meta-block">
+          <a href="tel:+77172972040" class="contact-phone-primary" id="headerPhone">+7 (7172) 97-20-40</a>
+          <span class="contact-schedule">Прием заявок: Пн-Пт 08:30 – 18:30</span>
+        </div>
+        <button class="btn btn-outline" onclick="document.getElementById('callbackModal').classList.remove('hidden')">Звонок</button>
+        <button class="btn btn-primary cart-quote-trigger" id="openQuoteModal">
+          <span>📋</span>
+          <span>Заявка (КП)</span>
+          <span class="cart-badge" id="quoteCountBadge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav class="site-nav-bar">
+    <div class="container nav-bar-inner">
+      <a href="catalog.html" class="catalog-menu-btn">
+        <span>☰</span>
+        <span>ВЕСЬ КАТАЛОГ МЕТАЛЛОПРОКАТА</span>
+      </a>
+      <div class="main-site-nav">
+        <a href="catalog.html?cat=stainless">Нержавеющая сталь</a>
+        <a href="catalog.html?cat=nonferrous">Цветные металлы</a>
+        <a href="catalog.html?cat=special">Спецсплавы и нихром</a>
+        <a href="catalog.html?cat=titanium">Титан и никель</a>
+        <a href="catalog.html?cat=polymers">Инженерные полимеры</a>
+        <a href="catalog.html?cat=ferrous">Черный прокат</a>
+        <a href="services.html">Услуги резки</a>
+        <a href="calculator.html" class="highlight-link">🧮 Калькулятор веса</a>
+        <a href="delivery.html">Доставка по РК</a>
+        <a href="contacts.html">Склады</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumbs-bar">
+    <div class="container">
+      <ul class="breadcrumbs-list">
+        <li><a href="index.html">Главная</a></li>
+        <li class="current">О компании ТОО «Ferrotech Kazakhstan»</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-title-banner">
+    <div class="container">
+      <h1>О компании ТОО «Ferrotech Kazakhstan»</h1>
+      <p>Один из ведущих специализированных операторов металлопроката, прецизионных сплавов, цветных и редких металлов в Республике Казахстан.</p>
+    </div>
+  </div>
+
+  <main class="container section">
+    <div style="display:grid; grid-template-columns:1.2fr 0.8fr; gap:40px; align-items:flex-start;">
+      <div>
+        <h2 style="font-size:24px; font-weight:800; margin-bottom:14px; color:#0f172a;">Надежный партнер промышленного сектора Казахстана</h2>
+        <p style="font-size:14px; color:#475569; line-height:1.7; margin-bottom:14px;">
+          <strong>ТОО «Ferrotech Kazakhstan»</strong> специализируется на поставках сложного и дефицитного металлопроката: коррозионно-стойких и жаропрочных сталей (12Х18Н10Т, AISI 316L, AISI 321), цветных металлов (медь, латунь, бронза, дюралюминий), титановых сплавов (ВТ1-0, ВТ6), тугоплавких материалов (нихром, фехраль, молибден, вольфрам) и конструкционных инженерных полимеров (фторопласт Ф-4, капролон ПА-6).
+        </p>
+        <p style="font-size:14px; color:#475569; line-height:1.7; margin-bottom:20px;">
+          Мы обеспечиваем непрерывность производственных циклов горно-металлургических комбинатов (ERG, Казахмыс, Казцинк), нефтегазовых операторов (TCO, NCOC, KPO), предприятий машиностроения, приборостроения и энергетики.
+        </p>
+
+        <!-- Stats -->
+        <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:16px; margin-top:24px; margin-bottom:30px;">
+          <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:6px; padding:18px;">
+            <span style="font-family:var(--font-mono); font-size:28px; font-weight:800; color:var(--color-primary); display:block;">60 000+</span>
+            <span style="font-size:12px; color:#64748b;">Наименований металлопроката в наличии</span>
+          </div>
+          <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:6px; padding:18px;">
+            <span style="font-family:var(--font-mono); font-size:28px; font-weight:800; color:var(--color-primary); display:block;">4 базы</span>
+            <span style="font-size:12px; color:#64748b;">Склады в Астане, Алматы, Караганде, Атырау</span>
+          </div>
+          <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:6px; padding:18px;">
+            <span style="font-family:var(--font-mono); font-size:28px; font-weight:800; color:var(--color-primary); display:block;">100%</span>
+            <span style="font-size:12px; color:#64748b;">Сертификация по ГОСТ, СТ РК, ASTM</span>
+          </div>
+        </div>
+
+        <h3 style="font-size:18px; font-weight:700; margin-bottom:12px;">Участие в тендерах и государственные закупки</h3>
+        <p style="font-size:14px; color:#475569; line-height:1.7;">
+          Компания аккредитована на всех ключевых электронных торговых площадках Казахстана:
+        </p>
+        <ul style="font-size:13px; color:#334155; margin-top:8px; display:flex; flex-direction:column; gap:6px;">
+          <li>✔ Портал государственных закупок Республики Казахстан (goszakup.gov.kz)</li>
+          <li>✔ Электронная торговая площадка АО «ФНБ «Самрук-Қазына» (zakup.sk.kz)</li>
+          <li>✔ Реестр отечественных товаропроизводителей и поставщиков Холдинга</li>
+          <li>✔ Торговые площадки недропользователей РК (Nadloc, Reestr.nadloc.kz)</li>
+        </ul>
+      </div>
+
+      <!-- Legal Requisites Card -->
+      <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:var(--radius-lg); padding:30px; box-shadow:var(--shadow-sm);">
+        <h3 style="font-size:18px; font-weight:700; margin-bottom:16px; border-bottom:2px solid var(--color-primary); padding-bottom:8px;">Реквизиты организации</h3>
+        <div style="font-size:13px; line-height:1.8; color:#334155;">
+          <p><strong>Полное наименование:</strong> ТОО «Ferrotech Kazakhstan» (Ферротек Казахстан)</p>
+          <p><strong>БИН:</strong> 210840029145</p>
+          <p><strong>НДС:</strong> Свидетельство плательщика НДС, ставка 12%</p>
+          <p><strong>Юридический адрес:</strong> Республика Казахстан, г. Астана, район Алматы, Индустриальный парк №1, ул. А184, здание 14</p>
+          <p><strong>Банк:</strong> АО «Народный Банк Казахстана» (Halyk Bank)</p>
+          <p><strong>ИИК (IBAN):</strong> KZ486010002003889124</p>
+          <p><strong>БИК:</strong> HSBKKZKX</p>
+          <p><strong>КБЕ:</strong> 17</p>
+          <p><strong>E-mail:</strong> <a href="mailto:info@ferrotech.kz" style="color:#0284c7; font-weight:600;">info@ferrotech.kz</a></p>
+          <p><strong>Телефон:</strong> <a href="tel:+77172972040" style="color:#0284c7; font-weight:600;">+7 (7172) 97-20-40</a></p>
+        </div>
+
+        <div style="margin-top:20px;">
+          <button class="btn btn-primary btn-block" onclick="document.getElementById('quoteModal').classList.remove('hidden')">Запросить коммерческое предложение</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-columns-grid">
+      <div class="footer-brand">
+        <h3>FERROTECH KZ</h3>
+        <p>ТОО «Ferrotech Kazakhstan» — надежный поставщик нержавеющего, цветного металлопроката и специальных сплавов на предприятия Казахстана.</p>
+        <p style="font-size:11px; color:#64748b;">© 2026 ТОО «Ferrotech Kazakhstan». БИН 210840029145.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Каталог продукции</h4>
+        <ul>
+          <li><a href="catalog.html?cat=stainless">Нержавеющая сталь</a></li>
+          <li><a href="catalog.html?cat=nonferrous">Цветной металлопрокат</a></li>
+          <li><a href="catalog.html?cat=special">Спецсплавы и нихром</a></li>
+          <li><a href="catalog.html?cat=titanium">Титан и никель</a></li>
+          <li><a href="catalog.html?cat=polymers">Инженерные полимеры</a></li>
+          <li><a href="catalog.html?cat=ferrous">Черный прокат</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Сервисы и разделы</h4>
+        <ul>
+          <li><a href="calculator.html">Калькулятор массы металла</a></li>
+          <li><a href="services.html">Услуги резки и гибки</a></li>
+          <li><a href="delivery.html">Склады и доставка по РК</a></li>
+          <li><a href="about.html">О компании и сертификатах</a></li>
+          <li><a href="contacts.html">Контакты всех филиалов</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-contacts-col">
+        <h4>Контакты отдела продаж</h4>
+        <p><strong>Астана:</strong> <a href="tel:+77172972040">+7 (7172) 97-20-40</a></p>
+        <p><strong>Алматы:</strong> <a href="tel:+77273505060">+7 (727) 350-50-60</a></p>
+        <p><strong>WhatsApp:</strong> <a href="https://wa.me/77005557080">+7 (700) 555-70-80</a></p>
+        <p><strong>E-mail:</strong> <a href="mailto:info@ferrotech.kz">info@ferrotech.kz</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toastContainer" class="toast-container"></div>
+  <script src="app.js"></script>
+</body>
+</html>
+

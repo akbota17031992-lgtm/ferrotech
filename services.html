@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Услуги металлообработки и резки в Казахстане — ТОО Ferrotech</title>
+  <meta name="description" content="Услуги лазерной, гидроабразивной, плазменной и ленточнопильной резки металла в Астане и Алматы. Раскрой нержавейки, цветного проката, титана по чертежам заказчика.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Top Utility Bar -->
+  <div class="site-top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <div class="city-select-box">
+          <span>📍</span>
+          <select id="citySelect">
+            <option value="ast" selected>г. Астана (Центральный хаб)</option>
+            <option value="alm">г. Алматы</option>
+            <option value="krg">г. Караганда</option>
+            <option value="atr">г. Атырау (Нефтегазовый сектор)</option>
+            <option value="shym">г. Шымкент</option>
+          </select>
+        </div>
+        <span class="vat-notice">✓ Плательщик НДС 12% • ЭСФ и СНТ</span>
+      </div>
+      <div class="top-bar-right">
+        <div class="top-links">
+          <a href="calculator.html">Калькулятор металла</a>
+          <a href="services.html">Услуги резки</a>
+          <a href="delivery.html">Склады и доставка</a>
+          <a href="about.html">О компании</a>
+          <a href="contacts.html">Контакты</a>
+        </div>
+        <div class="top-lang-switch">
+          <span class="lang-btn active">РУС</span>
+          <span>|</span>
+          <span class="lang-btn">ҚАЗ</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Brand Header -->
+  <header class="site-main-header">
+    <div class="container main-header-inner">
+      <div class="brand-block">
+        <a href="index.html" class="brand-link">
+          <span class="brand-icon">⬢</span>
+          <span>FERRO<span class="brand-accent">TECH</span><span class="brand-country-badge">KZ</span></span>
+        </a>
+        <span class="brand-subtext">Специальная металлургия Казахстана</span>
+      </div>
+
+      <div class="header-search-box">
+        <div class="search-field-wrap">
+          <input 
+            type="text" 
+            id="globalSearch" 
+            placeholder="Поиск по марке стали, ГОСТ, размерам..." 
+            autocomplete="off"
+          >
+          <button class="search-btn" id="searchSubmitBtn">Найти</button>
+        </div>
+        <div id="searchDropdown" class="search-suggest-dropdown hidden"></div>
+      </div>
+
+      <div class="header-right-tools">
+        <div class="contact-meta-block">
+          <a href="tel:+77172972040" class="contact-phone-primary" id="headerPhone">+7 (7172) 97-20-40</a>
+          <span class="contact-schedule">Прием заявок: Пн-Пт 08:30 – 18:30</span>
+        </div>
+        <button class="btn btn-outline" onclick="document.getElementById('callbackModal').classList.remove('hidden')">Звонок</button>
+        <button class="btn btn-primary cart-quote-trigger" id="openQuoteModal">
+          <span>📋</span>
+          <span>Заявка (КП)</span>
+          <span class="cart-badge" id="quoteCountBadge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav class="site-nav-bar">
+    <div class="container nav-bar-inner">
+      <a href="catalog.html" class="catalog-menu-btn">
+        <span>☰</span>
+        <span>ВЕСЬ КАТАЛОГ МЕТАЛЛОПРОКАТА</span>
+      </a>
+      <div class="main-site-nav">
+        <a href="catalog.html?cat=stainless">Нержавеющая сталь</a>
+        <a href="catalog.html?cat=nonferrous">Цветные металлы</a>
+        <a href="catalog.html?cat=special">Спецсплавы и нихром</a>
+        <a href="catalog.html?cat=titanium">Титан и никель</a>
+        <a href="catalog.html?cat=polymers">Инженерные полимеры</a>
+        <a href="catalog.html?cat=ferrous">Черный прокат</a>
+        <a href="services.html" class="active">Услуги резки</a>
+        <a href="calculator.html" class="highlight-link">🧮 Калькулятор веса</a>
+        <a href="delivery.html">Доставка по РК</a>
+        <a href="contacts.html">Склады</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumbs-bar">
+    <div class="container">
+      <ul class="breadcrumbs-list">
+        <li><a href="index.html">Главная</a></li>
+        <li class="current">Услуги промышленной металлообработки</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-title-banner">
+    <div class="container">
+      <h1>Услуги металлообработки и резки металлопроката в РК</h1>
+      <p>Собственный производственный парк станков с ЧПУ в Астане и Алматы: лазерная, гидроабразивная, ленточнопильная резка и гибка деталей по чертежам заказчика.</p>
+    </div>
+  </div>
+
+  <main class="container section">
+    <div class="services-grid-3">
+      <div class="wh-card">
+        <div style="font-size:36px; margin-bottom:12px;">⚡</div>
+        <h3 style="font-size:18px; margin-bottom:10px;">Лазерная резка с ЧПУ</h3>
+        <p style="font-size:13px; color:#64748b; line-height:1.6; margin-bottom:14px;">
+          Высокоточный раскрой листового проката (нержавейка, алюминий, углеродистая сталь) волоконным лазером до 30 мм. Чистый перпендикулярный рез без окалины.
+        </p>
+        <div style="font-size:12px; color:#1e293b; border-top:1px solid #e2e8f0; padding-top:10px;">
+          <p>• Толщина: <strong>от 0.5 до 30 мм</strong></p>
+          <p>• Точность позиционирования: <strong>±0.05 мм</strong></p>
+          <p>• Стоимость: <strong>от 280 ₸/пог. метр</strong></p>
+        </div>
+      </div>
+
+      <div class="wh-card">
+        <div style="font-size:36px; margin-bottom:12px;">💧</div>
+        <h3 style="font-size:18px; margin-bottom:10px;">Гидроабразивная резка</h3>
+        <p style="font-size:13px; color:#64748b; line-height:1.6; margin-bottom:14px;">
+          Холодная резка струей воды с абразивным песком под давлением 4000 бар. Отсутствие термического влияния, коробления и закалки кромок для титана, меди и полимеров.
+        </p>
+        <div style="font-size:12px; color:#1e293b; border-top:1px solid #e2e8f0; padding-top:10px;">
+          <p>• Толщина: <strong>до 200 мм</strong></p>
+          <p>• Идеально для: <strong>титана, меди, бронзы</strong></p>
+          <p>• Стоимость: <strong>от 750 ₸/пог. метр</strong></p>
+        </div>
+      </div>
+
+      <div class="wh-card">
+        <div style="font-size:36px; margin-bottom:12px;">🪚</div>
+        <h3 style="font-size:18px; margin-bottom:10px;">Ленточнопильная резка</h3>
+        <p style="font-size:13px; color:#64748b; line-height:1.6; margin-bottom:14px;">
+          Резка сплошных кругов большого диаметра, толстостенных труб и поковок строго под 90° и 45°. Минимальный припуск металла под дальнейшую механическую обработку.
+        </p>
+        <div style="font-size:12px; color:#1e293b; border-top:1px solid #e2e8f0; padding-top:10px;">
+          <p>• Диаметр заготовки: <strong>до 800 мм</strong></p>
+          <p>• Резка от: <strong>1 штуки / заготовки</strong></p>
+          <p>• Стоимость: <strong>от 450 ₸/рез</strong></p>
+        </div>
+      </div>
+
+      <div class="wh-card">
+        <div style="font-size:36px; margin-bottom:12px;">📐</div>
+        <h3 style="font-size:18px; margin-bottom:10px;">Гибка листового металла ЧПУ</h3>
+        <p style="font-size:13px; color:#64748b; line-height:1.6; margin-bottom:14px;">
+          Гибка профилей, уголков, швеллеров, корпусов приборов и кожухов на листогибочных прессах с ЧПУ с контролем угла лазерным датчиком.
+        </p>
+        <div style="font-size:12px; color:#1e293b; border-top:1px solid #e2e8f0; padding-top:10px;">
+          <p>• Усилие: <strong>до 320 тонн</strong></p>
+          <p>• Длина гиба: <strong>до 4000 мм</strong></p>
+          <p>• Стоимость: <strong>от 180 ₸/гиб</strong></p>
+        </div>
+      </div>
+
+      <div class="wh-card">
+        <div style="font-size:36px; margin-bottom:12px;">🛡️</div>
+        <h3 style="font-size:18px; margin-bottom:10px;">Цинкование и пассивация</h3>
+        <p style="font-size:13px; color:#64748b; line-height:1.6; margin-bottom:14px;">
+          Горячее оцинкование по ГОСТ 9.307-89, термодиффузионное покрытие, электрохимическая пассивация нержавеющей стали и цветное анодирование алюминия.
+        </p>
+        <div style="font-size:12px; color:#1e293b; border-top:1px solid #e2e8f0; padding-top:10px;">
+          <p>• Защита от коррозии: <strong>до 30 лет</strong></p>
+          <p>• Толщина слоя: <strong>40-120 мкм</strong></p>
+          <p>• Стоимость: <strong>от 140 ₸/кг</strong></p>
+        </div>
+      </div>
+
+      <div class="wh-card">
+        <div style="font-size:36px; margin-bottom:12px;">⚙️</div>
+        <h3 style="font-size:18px; margin-bottom:10px;">Изготовление деталей по чертежам</h3>
+        <p style="font-size:13px; color:#64748b; line-height:1.6; margin-bottom:14px;">
+          Токарная и фрезерная обработка штуцеров, фланцев, валов, гаек и нестандартных узлов из бронзы, нержавейки, титана и капролона.
+        </p>
+        <div style="font-size:12px; color:#1e293b; border-top:1px solid #e2e8f0; padding-top:10px;">
+          <p>• Станки: <strong>5-осевые ЧПУ центры</strong></p>
+          <p>• Серия: <strong>от 5 шт до крупной партии</strong></p>
+          <p>• Контроль: <strong>ОТК и паспорт изделия</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Request Metalworking Quote Form -->
+    <div style="margin-top:50px; background:#ffffff; border:1px solid #e2e8f0; border-radius:var(--radius-lg); padding:36px; box-shadow:var(--shadow-sm);">
+      <div style="max-width:700px; margin:0 auto; text-align:center;">
+        <span class="section-tag">Инженерный расчет резки</span>
+        <h2 style="font-size:24px; font-weight:800; margin-bottom:8px;">Отправить чертеж или эскиз на расчет стоимости</h2>
+        <p style="font-size:14px; color:#64748b; margin-bottom:24px;">
+          Прикрепите чертеж в формате DXF, DWG, PDF или эскиз. Инженеры-технологи рассчитают раскрой, количество необходимых листов/прутков и точную стоимость работ.
+        </p>
+
+        <form onsubmit="event.preventDefault(); showToast('Чертеж принят в обработку! Технолог ТОО Ferrotech свяжется с вами.'); this.reset();">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:14px;">
+            <input type="text" placeholder="Ваша компания / Имя" style="padding:10px; border:1px solid #cbd5e1; border-radius:4px; font-size:13px;" required>
+            <input type="tel" placeholder="+7 (7__) ___-__-__ (WhatsApp)" style="padding:10px; border:1px solid #cbd5e1; border-radius:4px; font-size:13px;" required>
+          </div>
+          <div style="margin-bottom:14px;">
+            <textarea rows="3" placeholder="Укажите марку металла (например: 12Х18Н10Т 4мм), требуемое количество деталей и город доставки..." style="width:100%; padding:10px; border:1px solid #cbd5e1; border-radius:4px; font-size:13px;" required></textarea>
+          </div>
+          <div style="padding:16px; border:1px dashed #cbd5e1; border-radius:4px; background:#f8fafc; margin-bottom:20px;">
+            <label style="cursor:pointer; font-size:13px; color:#0284c7; font-weight:600;">
+              📎 Нажмите для выбора файла чертежа (PDF, DXF, DWG, Excel, ZIP)
+              <input type="file" style="display:none;" onchange="showToast('Файл чертежа прикреплен: ' + this.files[0].name);">
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg" style="min-width:260px;">Рассчитать стоимость раскроя</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-columns-grid">
+      <div class="footer-brand">
+        <h3>FERROTECH KZ</h3>
+        <p>ТОО «Ferrotech Kazakhstan» — надежный поставщик нержавеющего, цветного металлопроката и специальных сплавов на предприятия Казахстана.</p>
+        <p style="font-size:11px; color:#64748b;">© 2026 ТОО «Ferrotech Kazakhstan». БИН 210840029145.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Каталог проката</h4>
+        <ul>
+          <li><a href="catalog.html?cat=stainless">Нержавеющая сталь</a></li>
+          <li><a href="catalog.html?cat=nonferrous">Цветной металлопрокат</a></li>
+          <li><a href="catalog.html?cat=special">Спецсплавы и нихром</a></li>
+          <li><a href="catalog.html?cat=titanium">Титан и никель</a></li>
+          <li><a href="catalog.html?cat=polymers">Инженерные полимеры</a></li>
+          <li><a href="catalog.html?cat=ferrous">Черный прокат</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Сервисы и разделы</h4>
+        <ul>
+          <li><a href="calculator.html">Калькулятор массы металла</a></li>
+          <li><a href="services.html">Услуги резки и гибки</a></li>
+          <li><a href="delivery.html">Склады и доставка по РК</a></li>
+          <li><a href="about.html">О компании и сертификатах</a></li>
+          <li><a href="contacts.html">Контакты всех филиалов</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-contacts-col">
+        <h4>Контакты отдела продаж</h4>
+        <p><strong>Астана:</strong> <a href="tel:+77172972040">+7 (7172) 97-20-40</a></p>
+        <p><strong>Алматы:</strong> <a href="tel:+77273505060">+7 (727) 350-50-60</a></p>
+        <p><strong>WhatsApp:</strong> <a href="https://wa.me/77005557080">+7 (700) 555-70-80</a></p>
+        <p><strong>E-mail:</strong> <a href="mailto:info@ferrotech.kz">info@ferrotech.kz</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toastContainer" class="toast-container"></div>
+  <script src="app.js"></script>
+</body>
+</html>
+
