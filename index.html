@@ -26,7 +26,7 @@
             <option value="shym">г. Шымкент</option>
           </select>
         </div>
-        <span class="vat-notice">✓ Плательщик НДС 12% • ЭСФ и СНТ</span>
+        <span class="vat-notice">✓ Плательщик НДС 16% • ЭСФ и СНТ</span>
       </div>
       <div class="top-bar-right">
         <div class="top-links">
@@ -128,7 +128,7 @@
           </span>
           <h1 class="compact-hero-title">Металлопрокат, спецстали и цветные металлы в Казахстане</h1>
           <p class="compact-hero-subtitle">
-            Более 60 000 позиций на крытых металлобазах в Астане, Алматы, Караганде и Атырау. Поставки по стандартам ГОСТ и СТ РК, выставление счетов в тенге с НДС 12%, ЭСФ и СНТ.
+            Более 60 000 позиций на крытых металлобазах в Астане, Алматы, Караганде и Атырау. Поставки по стандартам ГОСТ и СТ РК, выставление счетов в тенге с НДС 16%, ЭСФ и СНТ.
           </p>
         </div>
 
@@ -276,7 +276,7 @@
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; flex-wrap:wrap; gap:12px;">
           <div>
             <h3 style="font-size:18px; font-weight:800; color:#0f172a; margin-bottom:4px;">Популярный металлопрокат в наличии</h3>
-            <p style="font-size:13px; color:#64748b; margin:0;">Цены указаны в тенге (₸) с учетом НДС 12%. Отгрузка с металлобаз в Астане и Алматы:</p>
+            <p style="font-size:13px; color:#64748b; margin:0;">Цены указаны в тенге (₸) с учетом НДС 16%. Отгрузка с металлобаз в Астане и Алматы:</p>
           </div>
           <div style="display:flex; gap:10px;">
             <button class="btn btn-outline btn-sm" onclick="downloadPricelistExcelQuick()">📊 Скачать прайс (Excel)</button>
@@ -293,7 +293,7 @@
                 <th>Размер / Сечение</th>
                 <th>Стандарт</th>
                 <th>Склад в РК</th>
-                <th>Цена с НДС 12%</th>
+                <th>Цена с НДС 16%</th>
                 <th>Действие</th>
               </tr>
             </thead>
@@ -359,7 +359,7 @@
             </p>
             <div style="display:flex; flex-direction:column; gap:8px; font-size:13px; color:#334155; margin-bottom:24px;">
               <div>✔ Автоматический пересчет: <strong>Тонны ⇄ Кг ⇄ Метры ⇄ Штуки</strong></div>
-              <div>✔ Расчет точной стоимости партии в тенге (₸) с НДС 12%</div>
+              <div>✔ Расчет точной стоимости партии в тенге (₸) с НДС 16%</div>
               <div>✔ Векторные SVG-чертежи сечений профилей по стандартам</div>
               <div>✔ Прямой экспорт спецификации в официальное КП с печатью</div>
             </div>
@@ -412,7 +412,7 @@
                 <strong id="homeResCount" style="font-family:var(--font-mono);">96.3 шт</strong>
               </div>
               <div style="display:flex; justify-content:space-between; font-size:14px; padding-top:6px; border-top:1px dashed #cbd5e1;">
-                <span style="font-weight:700; color:#0f172a;">Стоимость с НДС 12%:</span>
+                <span style="font-weight:700; color:#0f172a;">Стоимость с НДС 16%:</span>
                 <strong id="homeResCost" style="font-family:var(--font-mono); color:#d97706; font-size:16px;">420 000 ₸</strong>
               </div>
             </div>
@@ -502,7 +502,7 @@
             <div style="font-size:13px; color:#475569; display:flex; flex-direction:column; gap:6px;">
               <div><strong>Наименование:</strong> ТОО «Ferrotech Kazakhstan»</div>
               <div><strong>БИН:</strong> <span style="font-family:var(--font-mono); font-weight:700; color:#0f172a;">210840029145</span></div>
-              <div><strong>НДС:</strong> Свидетельство плательщика НДС 12%</div>
+              <div><strong>НДС:</strong> Свидетельство плательщика НДС 16% (ст. 503 НК РК)</div>
               <div><strong>Банк:</strong> АО «Halyk Bank» (Народный Банк Казахстана)</div>
               <div><strong>ИИК:</strong> <span style="font-family:var(--font-mono); font-size:11px;">KZ456012345678901234</span></div>
               <div><strong>БИК:</strong> HSBKKZKX</div>
@@ -581,7 +581,7 @@
         </div>
 
         <form id="quoteFinalForm" onsubmit="event.preventDefault(); showToast('Заявка принята в ТОО Ferrotech Kazakhstan! Менеджер свяжется с вами.'); QuoteManager.clear(); document.getElementById('quoteModal').classList.add('hidden');">
-          <h4 style="font-size:14px; font-weight:700; margin-bottom:12px; border-top:1px solid #e2e8f0; padding-top:16px;">Реквизиты для выставления счета (с НДС 12%):</h4>
+          <h4 style="font-size:14px; font-weight:700; margin-bottom:12px; border-top:1px solid #e2e8f0; padding-top:16px;">Реквизиты для выставления счета (с НДС 16%):</h4>
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px;">
             <input type="text" placeholder="ТОО / ИП / БИН (12 цифр)" style="padding:9px; border:1px solid #e2e8f0; border-radius:4px; font-size:13px;" required>
             <input type="text" placeholder="Контактное лицо (ФИО)" style="padding:9px; border:1px solid #e2e8f0; border-radius:4px; font-size:13px;" required>

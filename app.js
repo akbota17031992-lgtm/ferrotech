@@ -3,7 +3,7 @@
  * ТОО «Ferrotech Kazakhstan» — г. Астана, г. Алматы, г. Караганда, г. Атырау
  */
 
-// 1. Comprehensive Kazakhstan Metal Database (Prices in ₸ with VAT 12%)
+// 1. Comprehensive Kazakhstan Metal Database (Prices in ₸ with VAT 16%)
 const FERRO_PRODUCTS = [
   // 1. Нержавеющая сталь
   {
@@ -613,7 +613,7 @@ document.addEventListener("DOMContentLoaded", () => {
       items.forEach((it, idx) => {
         text += `${idx + 1}. ${it.title} | ${it.size} | ${it.quantity}\n`;
       });
-      text += "\nПлательщик НДС 12%. Ждем КП!";
+      text += "\nПлательщик НДС 16%. Ждем КП!";
       window.open("https://wa.me/77005557080?text=" + encodeURIComponent(text), "_blank");
     });
   }
@@ -649,7 +649,7 @@ function renderQuoteModalContent() {
 const I18N = {
   ru: {
     brandSubtitle: "Специальная металлургия Казахстана",
-    vatNotice: "✓ Плательщик НДС 12% • ЭСФ и СНТ",
+    vatNotice: "✓ Плательщик НДС 16% • ЭСФ и СНТ",
     schedule: "Прием заявок: Пн-Пт 08:30 – 18:30",
     catalogBtn: "☰ ВЕСЬ КАТАЛОГ МЕТАЛЛОПРОКАТА",
     searchPlaceholder: "Поиск по марке стали, ГОСТ, размерам (напр. 12Х18Н10Т, медь М1, ВТ1-0, нихром)...",
@@ -670,7 +670,7 @@ const I18N = {
   },
   kz: {
     brandSubtitle: "Қазақстанның арнайы металлургиясы",
-    vatNotice: "✓ 12% ҚҚС төлеуші • ЭШФ және ТІЖ",
+    vatNotice: "✓ 16% ҚҚС төлеуші • ЭШФ және ТІЖ",
     schedule: "Өтінімдерді қабылдау: Дс-Жм 08:30 – 18:30",
     catalogBtn: "☰ МЕТАЛЛ ПРОКАТЫНЫҢ ТОЛЫҚ КАТАЛОГЫ",
     searchPlaceholder: "Болат маркасы, МЕМСТ, өлшемдері бойынша іздеу (мыс. 12Х18Н10Т, М1 мыс, ВТ1-0, нихром)...",
@@ -825,7 +825,7 @@ function openOfficialKpDocument() {
             </div>
             <div style="font-size:12px; font-weight:700; color:#0f172a; margin-top:2px;">ТОО «Ferrotech Kazakhstan» / «ФЕРРОТЕК КАЗАХСТАН» ЖШС</div>
             <div style="font-size:11px; color:#64748b; margin-top:4px;">
-              БИН 210840029145 • Плательщик НДС 12%<br>
+              БИН 210840029145 • Плательщик НДС 16% (ст. 503 НК РК)<br>
               010000, Республика Казахстан, г. Астана, Индустриальный парк №1, ул. А184, зд. 14<br>
               Тел.: +7 (7172) 97-20-40, +7 (700) 555-70-80 • E-mail: info@ferrotech.kz • Web: www.ferrotech.kz
             </div>
@@ -855,7 +855,7 @@ function openOfficialKpDocument() {
               <th style="text-align:center;">Стандарт</th>
               <th style="text-align:center;">Количество</th>
               <th style="text-align:right;">Цена (₸ с НДС)</th>
-              <th style="text-align:right;">Сумма (₸ с НДС 12%)</th>
+              <th style="text-align:right;">Сумма (₸ с НДС 16%)</th>
             </tr>
           </thead>
           <tbody>
@@ -1014,7 +1014,7 @@ function downloadPricelistExcel() {
     "Размеры",
     "Стандарт (ГОСТ/ASTM/DIN)",
     "Наличие и склады в РК",
-    "Цена с НДС 12% (₸/кг)",
+    "Цена с НДС 16% (₸/кг)",
     "Минимальный объем заказа"
   ];
 

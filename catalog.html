@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Каталог металлопроката — ТОО Ferrotech Казахстан</title>
-  <meta name="description" content="Каталог цветного, нержавеющего, черного металлопроката и спецсплавов в Казахстане. Цены в тенге с НДС 12%, склады в Астане, Алматы, Караганде, Атырау.">
+  <meta name="description" content="Каталог цветного, нержавеющего, черного металлопроката и спецсплавов в Казахстане. Цены в тенге с НДС 16%, склады в Астане, Алматы, Караганде, Атырау.">
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,7 +26,7 @@
             <option value="shym">г. Шымкент</option>
           </select>
         </div>
-        <span class="vat-notice">✓ Плательщик НДС 12% • ЭСФ и СНТ</span>
+        <span class="vat-notice">✓ Плательщик НДС 16% • ЭСФ и СНТ</span>
       </div>
       <div class="top-bar-right">
         <div class="top-links">
@@ -138,7 +138,7 @@
   <div class="page-title-banner">
     <div class="container">
       <h1>Каталог металлопроката и сплавов в Казахстане</h1>
-      <p>Оптовые и розничные поставки редких марок сталей, цветного, нержавеющего и черного проката со складов в Астане, Алматы, Караганде и Атырау. Цены в тенге (₸) с учетом НДС 12%.</p>
+      <p>Оптовые и розничные поставки редких марок сталей, цветного, нержавеющего и черного проката со складов в Астане, Алматы, Караганде и Атырау. Цены в тенге (₸) с учетом НДС 16%.</p>
     </div>
   </div>
 
@@ -360,7 +360,7 @@
         </div>
 
         <form id="quoteFinalForm" onsubmit="event.preventDefault(); showToast('Заявка принята в ТОО Ferrotech Kazakhstan! Менеджер свяжется с вами.'); QuoteManager.clear(); document.getElementById('quoteModal').classList.add('hidden');">
-          <h4 style="font-size:14px; font-weight:700; margin-bottom:12px; border-top:1px solid #e2e8f0; padding-top:16px;">Реквизиты для выставления счета (с НДС 12%):</h4>
+          <h4 style="font-size:14px; font-weight:700; margin-bottom:12px; border-top:1px solid #e2e8f0; padding-top:16px;">Реквизиты для выставления счета (с НДС 16%):</h4>
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px;">
             <input type="text" placeholder="ТОО / ИП / БИН (12 цифр)" style="padding:9px; border:1px solid #e2e8f0; border-radius:4px; font-size:13px;" required>
             <input type="text" placeholder="Контактное лицо (ФИО)" style="padding:9px; border:1px solid #e2e8f0; border-radius:4px; font-size:13px;" required>
@@ -385,7 +385,7 @@
   <script>
     function downloadPricelistExcel() {
       let csv = "\uFEFF";
-      csv += "Наименование;Марка материала;Форма / Размер;ГОСТ / Стандарт;Склады в РК;Цена (Тенге ₸ с НДС 12%)\n";
+      csv += "Наименование;Марка материала;Форма / Размер;ГОСТ / Стандарт;Склады в РК;Цена (Тенге ₸ с НДС 16%)\n";
       FERRO_PRODUCTS.forEach(item => {
         csv += `"${item.name}";"${item.material}";"${item.size}";"${item.gost}";"${item.warehouse}";"${item.priceKg} ₸/кг"\n`;
       });

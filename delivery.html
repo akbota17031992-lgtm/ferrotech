@@ -26,7 +26,7 @@
             <option value="shym">г. Шымкент</option>
           </select>
         </div>
-        <span class="vat-notice">✓ Плательщик НДС 12% • ЭСФ и СНТ</span>
+        <span class="vat-notice">✓ Плательщик НДС 16% • ЭСФ и СНТ</span>
       </div>
       <div class="top-bar-right">
         <div class="top-links">
@@ -164,6 +164,114 @@
         <p style="font-size:13px; color:#64748b; line-height:1.6;">
           Отгрузка небольших партий редких сплавов (нихром, вольфрам, титан, фторопласт) от 1 кг транспортными компаниями (Jet Logistic, ABT, СДЭК, DPD) до дверей заказчика.
         </p>
+      </div>
+    </div>
+
+    <!-- Interactive Kazakhstan Freight & Delivery Calculator -->
+    <div class="kz-freight-calc-card" style="margin-top:40px; background:#ffffff; border:1px solid #cbd5e1; border-radius:12px; box-shadow:0 10px 25px -5px rgba(15,23,42,0.08); overflow:hidden;">
+      <div style="background:linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color:#ffffff; padding:24px 28px;">
+        <span style="display:inline-block; font-size:11px; font-weight:700; color:#38bdf8; text-transform:uppercase; letter-spacing:0.8px; margin-bottom:6px;">Логистический калькулятор РК</span>
+        <h2 style="font-size:22px; font-weight:800; margin:0 0 6px 0; color:#ffffff;">Онлайн-расчет стоимости и сроков доставки по Казахстану</h2>
+        <p style="font-size:13px; color:#94a3b8; margin:0;">Прямой расчет тарифов на автодоставку со складов Ferrotech в Астане, Алматы, Караганде и Атырау в тенге (₸) с учетом НДС 16%.</p>
+      </div>
+
+      <div style="padding:28px; display:grid; grid-template-columns:1.2fr 0.8fr; gap:32px;">
+        <div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+            <div>
+              <label for="freightFromCity" style="display:block; font-size:12px; font-weight:700; color:#475569; margin-bottom:6px;">Откуда (склад ТОО Ferrotech):</label>
+              <select id="freightFromCity" style="width:100%; padding:10px; border:1px solid #cbd5e1; border-radius:6px; font-size:14px; font-weight:600;" onchange="calculateFreight()">
+                <option value="astana" selected>г. Астана (Центральный хаб)</option>
+                <option value="almaty">г. Алматы (Южный металлоцентр)</option>
+                <option value="karaganda">г. Караганда (Спецстали и поковки)</option>
+                <option value="atyrau">г. Атырау (Нефтегазовый хаб)</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="freightToCity" style="display:block; font-size:12px; font-weight:700; color:#475569; margin-bottom:6px;">Куда (пункт разгрузки в РК):</label>
+              <select id="freightToCity" style="width:100%; padding:10px; border:1px solid #cbd5e1; border-radius:6px; font-size:14px; font-weight:600;" onchange="calculateFreight()">
+                <option value="almaty">г. Алматы</option>
+                <option value="astana">г. Астана</option>
+                <option value="shymkent" selected>г. Шымкент</option>
+                <option value="karaganda">г. Караганда</option>
+                <option value="aktobe">г. Актобе</option>
+                <option value="atyrau">г. Атырау</option>
+                <option value="aktau">г. Актау</option>
+                <option value="pavlodar">г. Павлодар</option>
+                <option value="oskemen">г. Усть-Каменогорск (Өскемен)</option>
+                <option value="semey">г. Семей</option>
+                <option value="kostanay">г. Костанай</option>
+                <option value="petropavl">г. Петропавловск</option>
+                <option value="taraz">г. Тараз</option>
+                <option value="kyzylorda">г. Кызылорда</option>
+                <option value="uralsk">г. Уральск (Орал)</option>
+                <option value="temirtau">г. Темиртау</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+            <div>
+              <label for="freightWeight" style="display:block; font-size:12px; font-weight:700; color:#475569; margin-bottom:6px;">Вес металлопроката (тонны):</label>
+              <input type="number" id="freightWeight" value="2.5" step="0.1" min="0.1" max="100" style="width:100%; padding:10px; border:1px solid #cbd5e1; border-radius:6px; font-size:14px; font-family:var(--font-mono); font-weight:700;" oninput="calculateFreight()">
+            </div>
+
+            <div>
+              <label for="freightLength" style="display:block; font-size:12px; font-weight:700; color:#475569; margin-bottom:6px;">Длина хлыста / листа:</label>
+              <select id="freightLength" style="width:100%; padding:10px; border:1px solid #cbd5e1; border-radius:6px; font-size:14px;" onchange="calculateFreight()">
+                <option value="short">До 3 метров (компактный)</option>
+                <option value="medium" selected>До 6 метров (стандартный)</option>
+                <option value="long">До 12 метров (длинномер / балки)</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="freightVehicle" style="display:block; font-size:12px; font-weight:700; color:#475569; margin-bottom:6px;">Рекомендуемый автотранспорт:</label>
+            <select id="freightVehicle" style="width:100%; padding:10px; border:1px solid #cbd5e1; border-radius:6px; font-size:14px;" onchange="calculateFreight()">
+              <option value="auto" selected>⚡ Автоподбор оптимального тарифа</option>
+              <option value="ltl">Сборный груз (LTL / ТК от 100 кг)</option>
+              <option value="gazelle">Газель бортовая (до 1.5 т, кузов 3-4м)</option>
+              <option value="five_ton">Бортовой 5-тонник (до 5 т, кузов 6м)</option>
+              <option value="manipulator">Манипулятор с выгрузкой (до 10 т)</option>
+              <option value="fura">Еврофура / Шаланда с кониками (до 22 т, 13.6м)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Calculated Summary Box -->
+        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:22px; display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <div style="font-size:12px; font-weight:700; color:#64748b; text-transform:uppercase; margin-bottom:12px;">Сводка по маршруту РК:</div>
+            
+            <div style="display:flex; justify-content:space-between; margin-bottom:10px; font-size:13px;">
+              <span style="color:#64748b;">Расстояние по автодорогам:</span>
+              <strong id="freightDistance" style="font-family:var(--font-mono);">1 450 км</strong>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; margin-bottom:10px; font-size:13px;">
+              <span style="color:#64748b;">Ориентировочный срок:</span>
+              <strong id="freightDays" style="color:#0284c7;">1-2 рабочих дня</strong>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; margin-bottom:10px; font-size:13px;">
+              <span style="color:#64748b;">Тип подвижного состава:</span>
+              <strong id="freightSelectedType">Бортовой 5-тонник (6м)</strong>
+            </div>
+
+            <div style="border-top:1px dashed #cbd5e1; margin-top:14px; padding-top:14px; display:flex; justify-content:space-between; align-items:baseline;">
+              <span style="font-weight:700; color:#0f172a; font-size:14px;">Стоимость с НДС 16%:</span>
+              <strong id="freightTotalCost" style="font-size:22px; font-family:var(--font-mono); color:#d97706;">145 000 ₸</strong>
+            </div>
+
+            <div style="font-size:11px; color:#64748b; margin-top:8px;">* Включает оформление ЭСФ, СНТ и страхование груза на всем пути следования.</div>
+          </div>
+
+          <button type="button" class="btn btn-primary btn-block btn-lg" style="margin-top:20px;" onclick="bookFreightQuick()">
+            🚚 Забронировать доставку на партию
+          </button>
+        </div>
       </div>
     </div>
 

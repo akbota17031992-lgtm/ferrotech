@@ -2,7 +2,7 @@
  * 23MET.RU METAL CALCULATOR ENGINE FOR FERROTECH KAZAKHSTAN
  * High-precision bidirectional theoretical metal calculation system
  * Covering Black steel, Stainless, Non-ferrous, and Fasteners
- * Prices in Kazakhstan Tenge (₸) with 12% VAT
+ * Prices in Kazakhstan Tenge (₸) with 16% VAT (ст. 503 НК РК)
  */
 
 // 1. Metal Category Definitions
@@ -609,7 +609,7 @@ let activeMetalFactor = 1.0;
 let activeDensity = 7.85;
 let baseWeightPerUnit = 0.888; // kg per meter or m²
 let currentLengthOne = 11.7; // length of 1 piece
-let currentPriceKg = 420; // ₸ with 12% VAT
+let currentPriceKg = 420; // ₸ with 16% VAT
 let isCustomSize = false;
 let lastEditedField = "meters";
 
@@ -1093,7 +1093,7 @@ function openWhatsAppWithCalculation() {
     `• Позиция: ${prodName}\n` +
     `• Размер / ГОСТ: ${activeSize} (${gost})\n` +
     `• Объем: ${inTons} т (${inKg} кг / ${inMeters} ${getProductUnit()} / ${inCount} шт)\n` +
-    `• Расчетная сумма: ${cost} (с НДС 12%)\n\n` +
+    `• Расчетная сумма: ${cost} (с НДС 16%)\n\n` +
     `Прошу подтвердить наличие на складе в Астане / Алматы.`;
 
   window.open("https://wa.me/77005557080?text=" + encodeURIComponent(message), "_blank");
